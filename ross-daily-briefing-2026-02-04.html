@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ross' Daily AI & AdTech Briefing - February 4, 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .date {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            color: #1e3c72;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #1e3c72;
+            margin-right: 12px;
+            border-radius: 2px;
+        }
+        h3 {
+            color: #2a5298;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+        .highlight {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #1e3c72;
+        }
+        .story {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #e3f2fd;
+        }
+        ul {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .badge {
+            display: inline-block;
+            background: #1e3c72;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin-right: 8px;
+        }
+        .vibe {
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 15px;
+        }
+        .timestamp {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .content {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📰 Ross' Daily AI & AdTech Briefing</h1>
+            <div class="date">February 4, 2026</div>
+        </header>
+        
+        <div class="content">
+            <!-- AdExchanger News -->
+            <div class="section">
+                <h2>📢 AdExchanger</h2>
+                <p class="vibe"><strong>Theme:</strong> 🤖 Agentic AI is eating ad tech. Almost every major story is about AI agents reshaping how ads get bought, sold, and measured.</p>
+                
+                <div class="story">
+                    <h3>CloudX Hits GA — MoPub's Spiritual Successor, Now With AI Agents</h3>
+                    <p>The co-founders of MoPub (and MAX) are back. CloudX launched into general availability with a pitch: let AI agents handle the grunt work of mobile ad monetization — tweaking floors, managing line items, adjusting demand paths in real time. CEO Jim Payne says the bottleneck has always been what a single ad ops person can tactically do. CloudX deploys specialized agents for SDK integrations, ad format setup, and ongoing optimization. Been in beta with publishers since Q4.</p>
+                    <p><a href="https://www.adexchanger.com/publishers/cloudx-hits-ga-with-plans-to-rewire-the-mobile-ad-stack-using-ai-agents/" target="_blank" style="color: #1e3c72;">→ Read full article</a></p>
+                </div>
+                
+                <div class="story">
+                    <h3>Amazon Ads Opens Beta for Its MCP Server</h3>
+                    <p>Amazon Ads is betting on Model Context Protocol as the connective tissue between agentic AI systems and its ad platform. The MCP server acts as a "translation layer" so agents don't have to wrestle with granular APIs directly — think natural language prompts that spin up full campaigns with ad groups, audiences, and budgets. VP Paula Despins says the problem they saw internally was agents going rogue (e.g., analyzing 3 years of AMC data instead of just reading the standard report). MCP gives agents guardrails.</p>
+                    <p><a href="https://www.adexchanger.com/marketers/amazon-ads-opens-a-beta-test-for-its-new-mcp-server/" target="_blank" style="color: #1e3c72;">→ Read full article</a></p>
+                </div>
+                
+                <div class="story">
+                    <h3>Prebid Takes Over AdCP Code for Sell-Side AI Agents</h3>
+                    <p>Prebid is now the home for publisher-side AI agents built on Ad Context Protocol. The "Prebid Sales Agent" is open-source on GitHub and available to all publishers. The vision: specialized AI agents on both buy and sell sides negotiating programmatic deals autonomously. Magnite's Garrett McGrath (Prebid board chair) says Prebid's publisher-first DNA makes it the right steward. AgenticAdvertising.org (AAO) — yet another acronym — governs the standard.</p>
+                    <p><a href="https://www.adexchanger.com/publishers/prebid-takes-over-adcps-code-for-creating-sell-side-ai-agents/" target="_blank" style="color: #1e3c72;">→ Read full article</a></p>
+                </div>
+                
+                <div class="story">
+                    <h3>IAB Launches "Project Eidos" to Unify Measurement</h3>
+                    <p>Not new tech, but new structure. The IAB is consolidating its scattered measurement initiatives under one umbrella called Project Eidos (Greek for "to see"). VP Angelina Eng says the industry has been relying on "digital duct tape" — and even basic definitions remain unsettled. Is a video podcast a video ad or a podcast ad? Is a smart TV homepage tile CTV? Later this year, Eidos will standardize data inputs feeding into MMM products. The IAB estimates the lack of standards costs the industry significant waste.</p>
+                </div>
+                
+                <div class="highlight">
+                    <h3>🎙️ The Big Story: "Guess It's AdsGPT Now?"</h3>
+                    <p>OpenAI announced it's testing ads in ChatGPT search — after Sam Altman called ads a "last resort" just two years ago at Harvard. Omnicom Digital CEO Jonathan Nelson says agencies need to help brands weigh jumping in early vs. dealing with growing pains (remember Netflix's insane launch CPMs?). Nelson's take: the gap between Google AI Overviews, Perplexity, and OpenAI launching ads will look tiny in hindsight.</p>
+                    <p><a href="https://www.adexchanger.com/ai/what-we-know-chatgpt-is-launching-ads-the-rest-is-speculation/" target="_blank" style="color: #1e3c72;">→ Read full article</a></p>
+                </div>
+                
+                <p class="vibe"><em>CTV sidebar:</em> Reseller crackdowns sound great in theory, but indie CTV publishers are getting squeezed — one to watch.</p>
+                <p class="timestamp">Updated: 3:27 PM EST</p>
+            </div>
+            
+            <!-- Earlier AI Trends from X -->
+            <div class="section">
+                <h2>🤖 AI Trends from X (Morning Update)</h2>
+                <p class="vibe"><strong>Daily pulse:</strong> Stock carnage lingers + OpenClaw security drama. Alphabet earnings hype building. Light new drops amid rate limits.</p>
+                
+                <div class="highlight">
+                    <h3>🔥 Top Buzz</h3>
+                    <ul>
+                        <li><strong>AI Stock Selloff Round 2</strong> (NYT): Anthropic tools reigniting fears — software subs at risk. Thomson Reuters/RELX still bleeding; "AI eats SaaS" threads exploding. X consensus: "Year of Truth" (Capgemini) = pivot or perish.</li>
+                        <li><strong>OpenClaw Security Red Flags</strong> (Bloomberg): Viral agent (100K+ GitHub stars) under fire — broad access = prompt injection risks. Devs debating: "Game-changer or nightmare?" Moltbook bot religion memes everywhere.</li>
+                        <li><strong>Alphabet Earnings Watch</strong> (CNBC): Q4 preview — AI/ad momentum + Siri-Gemini deal details key. Street eyeing $135B+ capex echoes (Meta/Oracle). "Google's AI moat vs. agent disruption?"</li>
+                    </ul>
+                </div>
+                
+                <h3>📈 Ongoing Trends (X Chatter)</h3>
+                <ul>
+                    <li><strong>Agent Year Incoming</strong> (TechRadar): "AI agents everywhere, but outages loom." Goose/Continue hyped for local runs; Claude Sonnet 5 "Fennec" leak fueling release bets.</li>
+                    <li><strong>Safety Push:</strong> "Safe by design" demands rising post-Intl AI Safety Report. Pentagon-Anthropic military clash + Amodei risk warnings trending.</li>
+                    <li><strong>Infra Arms Race:</strong> SpaceX-xAI $1.25T merger (space DCs?), OpenAI-Nvidia drama. "Compute > models" mantra.</li>
+                </ul>
+                
+                <h3>🧵 X Highlights</h3>
+                <ul>
+                    <li><span class="badge">Bears</span> "Anthropic 0'd legal SaaS — next: adtech/marketing?"</li>
+                    <li><span class="badge">Bulls</span> AlphaGenome open-source love; Moonshot Kimi K2.5 "China closing gap."</li>
+                    <li><span class="badge">Memes</span> OpenClaw bots on Moltbook forming cults 😂; "Claude god or glitch?"</li>
+                </ul>
+                
+                <p class="timestamp">Compiled: 3:26 PM EST</p>
+            </div>
+            
+            <!-- Earlier AdTech Trends from X -->
+            <div class="section">
+                <h2>📢 AdTech Trends from X (Morning Update)</h2>
+                <p class="vibe"><strong>Quick scan:</strong> Light volume today. AI disruption dominates chatter amid last week's Anthropic fallout. No major announcements, but stocks + privacy/AI combo bubbling.</p>
+                
+                <div class="highlight">
+                    <h3>🔥 Top Buzz</h3>
+                    <ul>
+                        <li><strong>AppLovin Tanks 30% in Jan:</strong> Post-2025 doubling, adtech darling hit by software selloff + valuation fears (Motley Fool). Analysts eye AI coding agents automating ad optimization workflows. Stock rebounding slightly today?</li>
+                        <li><strong>Anthropic's Shadow Looms:</strong> Ad agencies (Omnicom/Publicis) still down from Cowork plugins launch. X threads debating if AI agents kill creative agencies or just low-end work. "Adtech pivot to AI orchestration or die" sentiment.</li>
+                    </ul>
+                </div>
+                
+                <h3>📈 Ongoing Trends (2026 Pulse)</h3>
+                <ul>
+                    <li><strong>AI Backbone Everywhere</strong> (Capgemini TechnoVision): "Year of Truth" — adtech shifting from hype to ROI-proven intelligent apps. Expect more agentic bidding/creative gen (Claude Code, Cursor integrations).</li>
+                    <li><strong>Privacy Post-Cookies:</strong> Google's phaseout fully live? Chatter on first-party data stacks + contextual AI targeting. EU DMA enforcement ramping signal loss mitigation.</li>
+                    <li><strong>Top Plays:</strong> Motley Fool flags adtech stocks like The Trade Desk, PubMatic. Retail media (Amazon, Walmart) eating programmatic share.</li>
+                </ul>
+                
+                <h3>🧵 X Highlights</h3>
+                <ul>
+                    <li>Devs hyping Goose/Continue for local adtech agents (multi-file repo awareness).</li>
+                    <li><span class="badge">Bearish</span> "Anthropic just 0'd Q1 guidance for half of Madison Ave."</li>
+                    <li><span class="badge">Optimistic</span> CTV/OTT: AI-driven personalization closing gap to linear TV.</li>
+                </ul>
+                
+                <p class="timestamp">Compiled: 3:27 PM EST</p>
+            </div>
+            
+            <!-- Latest AI Trends from X -->
+            <div class="section">
+                <h2>🤖 AI Trends from X (Evening Update)</h2>
+                <p class="vibe"><strong>Daily pulse:</strong> Alphabet post-earnings digestion — ad/search beast mode ($113.8B rev beat) but capex "significantly higher" 2026 spooks. OpenClaw FUD + Anthropic SaaS apocalypse threads peak. X split: moat intact vs. agent winter.</p>
+                
+                <div class="highlight">
+                    <h3>🔥 Top Buzz</h3>
+                    <ul>
+                        <li><strong>Alphabet Crushes Q4</strong> (CNBC/9to5Google/NYT): $113.8B rev (>est), +30% profit. AI/Cloud fire (Gemini Siri tease), but massive 2026 infra spend flags compute wars. Shares -1% AH — "Beat & retreat" vibe.</li>
+                        <li><strong>OpenClaw Under Fire</strong> (Bloomberg): "Sensation" with security holes (prompt injections). Snowed-in dev tales vs. "turn it off" calls. Moltbook bot cults = peak weird AI.</li>
+                        <li><strong>Anthropic Selloff Echoes</strong> (NYT): Tools fueling SaaS fears — Thomson Reuters et al. still down. "AI eats subscriptions" locked narrative.</li>
+                    </ul>
+                </div>
+                
+                <h3>📈 Ongoing Trends (X Chatter)</h3>
+                <ul>
+                    <li><strong>Capex Black Hole:</strong> Google/Meta/Oracle/ stalled Nvidia-OpenAI — "Print money today, burn tomorrow."</li>
+                    <li><strong>Agents Everywhere:</strong> Sonnet 5 leak frenzy; local Goose/Continue for safe runs. TechRadar: "Outages ahead."</li>
+                    <li><strong>Safety Drums:</strong> Bengio report + military clashes. "Safe-by-design or bust."</li>
+                </ul>
+                
+                <h3>🧵 X Highlights</h3>
+                <ul>
+                    <li><span class="badge">Bulls</span> "Google's $4T moat laughs at agents."</li>
+                    <li><span class="badge">Bears</span> "Capex + Anthropic = 2026 recession for tech."</li>
+                    <li><span class="badge">Memes</span> OpenClaw "Claude god in my basement" vs. hack demos 😂</li>
+                </ul>
+                
+                <p class="vibe"><strong>Tomorrow's watch:</strong> GOOGL earnings call (Gemini details?); FOMC on AI funding. Sonnet 5?</p>
+                <p class="timestamp">Compiled: 5:24 PM EST</p>
+            </div>
+            
+            <!-- Latest AdTech Trends from X -->
+            <div class="section">
+                <h2>📢 AdTech Trends from X (Evening Update)</h2>
+                <p class="vibe"><strong>Daily pulse:</strong> Alphabet ad rev beast ($113.8B Q4 total beat) cements Google dominance. Agency AI fears + AppLovin volatility linger. Post-earnings X lit on "ads unbreakable."</p>
+                
+                <div class="highlight">
+                    <h3>🔥 Top Buzz</h3>
+                    <ul>
+                        <li><strong>Google Ads Crushes</strong> (CNBC/9to5Google): $113.8B Q4 rev (+30% profit), search/ads core engine humming. Gemini/Siri AI boost teased; 2026 capex ramp for ad infra. X: "AI nibbles, Google feasts." Shares -1% AH.</li>
+                        <li><strong>AppLovin Steadying:</strong> -30% Jan wake-up call (Motley Fool), but peers hold post-Anthropic. "AI creative gen threat real?"</li>
+                        <li><strong>Agency Bloodbath Echo:</strong> Omnicom/Publicis down from Anthropic Cowork (marketing plugins). "Q1 guidance smoked" roasts.</li>
+                    </ul>
+                </div>
+                
+                <h3>📈 Ongoing Trends (X Chatter)</h3>
+                <ul>
+                    <li><strong>AI "Year of Truth"</strong> (Capgemini): Agentic ads (Claude bidding/creative). Contextual post-cookies.</li>
+                    <li><strong>Retail/CTV Surge:</strong> Amazon/Walmart programmatic killers; AI personalization = linear TV threat.</li>
+                    <li><strong>Privacy Play:</strong> DMA enforcement + first-party stacks.</li>
+                </ul>
+                
+                <h3>🧵 X Highlights</h3>
+                <ul>
+                    <li><span class="badge">Bulls</span> "Alphabet $4T ad moat > agent hype."</li>
+                    <li><span class="badge">Bears</span> "Anthropic automates agencies — DSPs next?"</li>
+                    <li><span class="badge">Hype</span> "Local Goose agents for indie adtech ROI."</li>
+                </ul>
+                
+                <p class="vibe"><strong>Tomorrow's watch:</strong> GOOGL call (ad AI metrics); FOMC ad spend signals.</p>
+                <p class="timestamp">Compiled: 5:25 PM EST</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p><strong>Sources:</strong> AdExchanger (with links), Future Tools, ForwardFuture, X (Brave Search pd 0-4hr), CNBC, NYT, Bloomberg, 9to5Google, Motley Fool, Capgemini, TechRadar</p>
+            <p><strong>Note:</strong> Future Tools and ForwardFuture content was covered in earlier briefing. Tomorrow's auto-briefing will include full content from all sources in one compilation.</p>
+            <p>Final compilation: February 4, 2026 at 6:39 PM EST</p>
+        </footer>
+    </div>
+</body>
+</html>
