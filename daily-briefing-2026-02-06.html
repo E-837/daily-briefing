@@ -1,54 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ross' Daily AI & AdTech Briefing - 2026-02-06</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #2c3e50; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); padding: 20px; min-height: 100vh; }
-        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
-        header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 40px; text-align: center; }
-        h1 { font-size: 2.2em; margin-bottom: 10px; font-weight: 700; }
-        .date { font-size: 1.1em; opacity: 0.9; }
-        .content { padding: 40px; }
-        .section { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 2px solid #f0f0f0; }
-        .section:last-child { border-bottom: none; }
-        h2 { color: #1e3c72; font-size: 1.5em; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #2a5298; }
-        h3 { color: #2a5298; font-size: 1.2em; margin: 20px 0 15px 0; }
-        h4 { color: #34495e; font-size: 1.1em; margin: 15px 0 10px 0; }
-        .content-block { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #2a5298; }
-        .content-block p { margin-bottom: 15px; }
-        .content-block ul { margin: 10px 0; padding-left: 25px; }
-        .content-block li { margin: 8px 0; }
-        a { color: #2a5298; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        hr { border: none; border-top: 1px solid #e0e0e0; margin: 20px 0; }
-        strong { color: #1e3c72; }
-        footer { background: #f8f9fa; padding: 20px 40px; text-align: center; color: #7f8c8d; font-size: 0.9em; }
-        @media (max-width: 600px) { body { padding: 10px; } header, .content { padding: 20px; } h1 { font-size: 1.6em; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ross' Daily AI & AdTech Briefing - February 6, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container { max-width: 700px; margin: 0 auto; }
+    .header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 30px;
+      border: 1px solid #2a2a4a;
+    }
+    .header h1 { 
+      font-size: 1.8em; 
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .header .date { color: #8892b0; font-size: 1.1em; }
+    .section {
+      background: #12121a;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 20px;
+      border: 1px solid #1e1e2e;
+    }
+    .section h2 {
+      color: #64ffda;
+      font-size: 1.3em;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #2a2a4a;
+    }
+    .story {
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #1e1e2e;
+    }
+    .story:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .story h3 {
+      color: #ccd6f6;
+      font-size: 1.05em;
+      margin-bottom: 6px;
+    }
+    .story .emoji { margin-right: 8px; }
+    .story p { color: #8892b0; font-size: 0.95em; }
+    .story a {
+      color: #64ffda;
+      text-decoration: none;
+      font-size: 0.85em;
+    }
+    .story a:hover { text-decoration: underline; }
+    .highlight {
+      background: linear-gradient(135deg, #1a2744 0%, #1e3a5f 100%);
+      border-left: 3px solid #64ffda;
+      padding: 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 18px;
+    }
+    .highlight h3 { color: #64ffda; }
+    .footer {
+      text-align: center;
+      color: #4a5568;
+      font-size: 0.85em;
+      margin-top: 30px;
+    }
+    .tag {
+      display: inline-block;
+      background: #2a2a4a;
+      color: #8892b0;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75em;
+      margin-right: 6px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>📰 Ross' Daily AI & AdTech Briefing</h1>
-            <p class="date">Friday, February 6, 2026</p>
-        </header>
-        <div class="content">
-            
-      <section class="section">
-        <h2>⚠️ No Content Available</h2>
-        <div class="content-block">
-          <p>No scraper outputs were found for today. Please ensure the scraper tasks have completed before running compilation.</p>
-        </div>
-      </section>
-    
-        </div>
-        <footer>
-            <p>Generated 2026-02-06T14:30:09.556Z by Mission Control</p>
-            <p>Sources: AdExchanger • Future Tools • ForwardFuture • X/Twitter</p>
-        </footer>
+  <div class="container">
+    <div class="header">
+      <h1>📰 Ross' Daily AI & AdTech Briefing</h1>
+      <div class="date">Friday, February 6, 2026</div>
     </div>
+
+    <div class="section">
+      <h2>🤖 AI News</h2>
+      
+      <div class="highlight">
+        <h3>🚀 Claude Opus 4.6 Released</h3>
+        <p>Anthropic dropped a major update to their flagship model with improved agentic performance and 1M token context window. Better coding, better at following complex specifications.</p>
+        <a href="https://www.gadgets360.com/ai/news/anthropic-claude-opus-4-6-ai-model-launch-1-million-context-window-agentic-coding-specifications-10957767">Gadgets360 →</a>
+      </div>
+
+      <div class="story">
+        <h3><span class="emoji">💰</span>Big Tech AI Spending: $650 BILLION in 2026</h3>
+        <p>Four major US tech giants have forecast combined capex of ~$650B this year for AI infrastructure. The arms race is real and accelerating.</p>
+        <a href="https://www.bloomberg.com/news/articles/2026-02-06/how-much-is-big-tech-spending-on-ai-computing-a-staggering-650-billion-in-2026">Bloomberg →</a>
+      </div>
+
+      <div class="story">
+        <h3><span class="emoji">📈</span>Alphabet Doubles Down - $175-185B Capex</h3>
+        <p>Google's parent company plans to roughly DOUBLE its 2025 investment ($91.4B → $175-185B). Stock dropped 5% as investors question sustainability. All-in on AI.</p>
+        <a href="https://finance.yahoo.com/news/alphabet-2026-spending-forecast-soars-past-wall-street-expectations-as-google-parent-goes-all-in-on-ai-195254701.html">Yahoo Finance →</a>
+      </div>
+
+      <div class="story">
+        <h3><span class="emoji">📉</span>Claude Cowork Continues Software Stock Carnage</h3>
+        <p>Anthropic's enterprise plugins for legal, finance, and data marketing continue hammering software stocks. Thomson Reuters, LegalZoom down 15%+. AI disruption is here.</p>
+        <a href="https://abcnews.go.com/Business/new-ai-tool-hammered-software-stocks-week/story?id=129845251">ABC News →</a>
+      </div>
+
+      <div class="story">
+        <h3><span class="emoji">🤖</span>Microscopic AI-Powered Robots Created</h3>
+        <p>Researchers created robots so small they're barely visible, yet smart enough to sense, decide, and move autonomously. Powered by light with tiny onboard computers.</p>
+        <a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/">ScienceDaily →</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📺 Ad Tech News</h2>
+
+      <div class="highlight">
+        <h3>🔌 Amazon Ads MCP Server in Open Beta</h3>
+        <p>Advertisers can now connect their own tools to Amazon's API functionalities through a single MCP integration. Big for automation and custom tooling.</p>
+        <span class="tag">Programmatic</span><span class="tag">APIs</span>
+        <br><br>
+        <a href="https://www.adexchanger.com/daily-news-roundup/friday-06-02-2026/">AdExchanger →</a>
+      </div>
+
+      <div class="story">
+        <h3><span class="emoji">📺</span>CTV Reseller Crackdown Squeezes Small Publishers</h3>
+        <p>SSPs have applauded or downplayed the CTV reseller crackdown, but smaller publishers see it as another revenue squeeze. The supply chain cleanup continues.</p>
+        <a href="https://www.adexchanger.com/daily-news-roundup/friday-06-02-2026/">AdExchanger →</a>
+      </div>
+
+      <div class="story">
+        <h3><span class="emoji">✅</span>MRC Auction Transparency Standards</h3>
+        <p>New standards require platforms to adopt OpenRTB specs to get certified. Not forcing a single auction playbook, but moving toward standardization.</p>
+        <a href="https://www.adexchanger.com/daily-news-roundup/thursday-05022026/">AdExchanger →</a>
+      </div>
+
+      <div class="story">
+        <h3><span class="emoji">📊</span>Trust in Advertising at 5-Year High</h3>
+        <p>Consumer trust is up across every channel, with TV seeing the biggest gains. Complex picture but positive trend for the industry.</p>
+        <a href="https://www.marketingweek.com/trust-advertising-five-year-high/">Marketing Week →</a>
+      </div>
+
+      <div class="story">
+        <h3><span class="emoji">🔍</span>Can Alphabet Outgrow Ads?</h3>
+        <p>Nine years ago, Sundar Pichai cited programmatic as a "strong contributor." Now the question is whether Google's other bets can outpace its ad revenue dominance.</p>
+        <a href="https://www.adexchanger.com/marketers/alphabet-can-outgrow-everything-else-but-can-it-outgrow-ads/">AdExchanger →</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Generated by Kant • Mission Control • <span id="timestamp"></span></p>
+    </div>
+  </div>
+  <script>
+    document.getElementById('timestamp').textContent = new Date().toLocaleString();
+  </script>
 </body>
 </html>
