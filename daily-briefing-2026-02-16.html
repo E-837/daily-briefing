@@ -35,6 +35,106 @@
       color: #666;
       font-size: 0.95em;
     }
+    
+    /* Executive Summary */
+    .executive-summary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .executive-summary h2 {
+      color: white;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .summary-points {
+      list-style: none;
+      font-size: 0.95em;
+    }
+    .summary-points li {
+      margin-bottom: 8px;
+      padding-left: 5px;
+    }
+    
+    /* Trending Entities */
+    .trending-entities {
+      background: #FEF3C7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .trending-entities h2 {
+      color: #92400E;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .entity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .entity-tag {
+      background: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .entity-tag .count {
+      background: #F59E0B;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.85em;
+      margin-left: 5px;
+    }
+    
+    /* Day Comparison */
+    .day-comparison {
+      background: #EFF6FF;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .day-comparison h2 {
+      color: #1E3A8A;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .comparison-group {
+      margin-bottom: 15px;
+    }
+    .comparison-group:last-child {
+      margin-bottom: 0;
+    }
+    .comparison-group h3 {
+      font-size: 1em;
+      margin-bottom: 10px;
+      color: #1E3A8A;
+    }
+    .topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topic-pill {
+      background: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .topic-pill.new {
+      border-left: 3px solid #10B981;
+    }
+    .topic-pill.continuing {
+      border-left: 3px solid #6366F1;
+    }
+    
+    /* Source Sections */
     .source-section {
       margin-bottom: 40px;
     }
@@ -44,11 +144,42 @@
       margin-bottom: 15px;
       padding-bottom: 8px;
       border-bottom: 2px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+    .article-count {
+      background: #E5E7EB;
+      color: #666;
+      font-size: 0.65em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+    
+    /* Articles */
     .article {
       margin-bottom: 20px;
       padding-left: 15px;
       border-left: 3px solid #F59E0B;
+      position: relative;
+    }
+    .article.priority {
+      border-left-color: #DC2626;
+      background: #FEF2F2;
+      padding: 15px;
+      padding-left: 15px;
+      border-radius: 4px;
+    }
+    .priority-badge {
+      display: inline-block;
+      background: #DC2626;
+      color: white;
+      font-size: 0.75em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      font-weight: 600;
     }
     .article h3 {
       font-size: 1.1em;
@@ -67,6 +198,7 @@
       font-size: 0.9em;
       margin-top: 5px;
     }
+    
     footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -74,6 +206,25 @@
       text-align: center;
       color: #666;
       font-size: 0.85em;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .entity-tags, .topic-pills {
+        gap: 6px;
+      }
     }
   </style>
 </head>
@@ -85,45 +236,86 @@
     </header>
     
     
+    <section class="executive-summary">
+      <h2>📋 Executive Summary</h2>
+      <ul class="summary-points">
+        <li>📌 When Conversation Becomes Inventory: How OpenAI Could Reshape Digital Advertising</li><li>🔥 Trending: AI (33), X (10), OpenAI (4)</li><li>📰 36 articles across 5 sources</li>
+      </ul>
+    </section>
+  
+    
+    <section class="trending-entities">
+      <h2>🔥 Trending Today</h2>
+      <div class="entity-tags">
+        
+          <span class="entity-tag">AI <span class="count">33</span></span>
+        
+          <span class="entity-tag">X <span class="count">10</span></span>
+        
+          <span class="entity-tag">OpenAI <span class="count">4</span></span>
+        
+          <span class="entity-tag">ChatGPT <span class="count">4</span></span>
+        
+          <span class="entity-tag">GPT <span class="count">4</span></span>
+        
+          <span class="entity-tag">programmatic <span class="count">3</span></span>
+        
+          <span class="entity-tag">AppLovin <span class="count">2</span></span>
+        
+          <span class="entity-tag">Amazon <span class="count">2</span></span>
+        
+      </div>
+    </section>
+  
+    
+    
         <section class="source-section">
-          <h2>AdExchanger</h2>
+          <h2>📊 AdExchanger <span class="article-count">8</span></h2>
           
-        <div class="article">
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
           <h3><a href="https://www.adexchanger.com/data-driven-thinking/when-conversation-becomes-inventory-how-openai-could-reshape-digital-advertising/" target="_blank">When Conversation Becomes Inventory: How OpenAI Could Reshape Digital Advertising</a></h3>
           <p class="snippet">OpenAI's new ad platform transforms conversational AI into advertising inventory, potentially reshaping how brands reach consumers.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.adexchanger.com/marketers/i-asked-chatgpt-where-my-ads-were-but-it-was-wrong-openai-said/" target="_blank">I Asked ChatGPT Where My Ads Were, But It Was Wrong, OpenAI Said</a></h3>
           <p class="snippet">OpenAI faces scrutiny over ad placement transparency as ChatGPT struggles with accurate reporting on where ads actually appear.</p>
         </div>
       
-        <div class="article">
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
           <h3><a href="https://www.adexchanger.com/mobile/applovin-takes-on-haters-and-doubters-as-it-lays-out-its-ecommerce-ad-ambitions/" target="_blank">AppLovin Takes On Haters And Doubters As It Lays Out Its Ecommerce Ad Ambitions</a></h3>
           <p class="snippet">AppLovin is pushing into ecommerce advertising despite skepticism, betting on AI-powered targeting and mobile-first strategies.</p>
         </div>
       
-        <div class="article">
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
           <h3><a href="https://www.adexchanger.com/publishers/how-publishers-are-testing-amazons-prebid-adapter-for-incremental-yield/" target="_blank">How Publishers Are Testing Amazon's Prebid Adapter For Incremental Yield</a></h3>
           <p class="snippet">Publishers experiment with Amazon's new Prebid adapter to boost ad revenue while maintaining header bidding efficiency.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.adexchanger.com/tv/roku-uses-its-q4-earnings-call-to-make-the-case-for-ai/" target="_blank">Roku Uses Its Q4 Earnings Call To Make The Case For AI</a></h3>
           <p class="snippet">Roku emphasizes AI capabilities in Q4 earnings, positioning itself as the smart TV platform built for the AI advertising era.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.adexchanger.com/marketers/say-hello-to-sage-the-latest-agentic-ai-platform/" target="_blank">Say Hello To SAGE, The Latest Agentic AI Platform</a></h3>
           <p class="snippet">iSpot launches SAGE, an agentic AI platform with ChatGPT-like interface for media buyers to generate campaign planning ideas and simplify streaming TV workflows.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.adexchanger.com/the-big-story/the-chatbot-ad-platform/" target="_blank">The Chatbot Ad Platform</a></h3>
           <p class="snippet">OpenAI launched ads this week, making ChatGPT the newest canvas for advertising. But not before its biggest competitor, Anthropic, lambasted the decision in a Super Bowl ad.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.adexchanger.com/daily-news-roundup/friday-13022026/" target="_blank">Friday News Roundup</a></h3>
           <p class="snippet">Daily roundup of the latest news in ad tech, programmatic advertising, and digital marketing.</p>
         </div>
@@ -132,24 +324,28 @@
       
 
         <section class="source-section">
-          <h2>Digiday</h2>
+          <h2>📰 Digiday <span class="article-count">4</span></h2>
           
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://digiday.com/marketing/wtf-are-tokens/" target="_blank">WTF are tokens?</a></h3>
           <p class="snippet">When someone sends a prompt or receives a response, the system breaks language into small segments. These fragments are tokens. An explainer on how AI tokenization works.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://digiday.com/marketing/ai-is-changing-how-retailers-select-tech-partners/" target="_blank">AI is changing how retailers select tech partners</a></h3>
           <p class="snippet">The quick rise of artificial intelligence-powered tools has reshaped retailers' process of selecting technology partners for anything from marketing to supply chain to merchandising.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://digiday.com/marketing/as-youtube-chases-tv-budgets-its-still-holding-onto-its-roots/" target="_blank">YouTube's upmarket TV push still runs on mid-funnel DNA</a></h3>
           <p class="snippet">YouTube is balancing wanting to be premium TV, the short-form powerhouse and a creator economy engine all at once as it chases upmarket TV advertising budgets.</p>
         </div>
       
-        <div class="article">
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
           <h3><a href="https://www.futuremarketreport.com/industry-report/programmaticingadvertising-market" target="_blank">Programmatic Advertising Market Growth</a></h3>
           <p class="snippet">With the increasing consumption of digital content and expansion of internet accessibility worldwide, programmatic advertising is rapidly becoming the preferred strategy for marketing campaigns.</p>
         </div>
@@ -158,44 +354,52 @@
       
 
         <section class="source-section">
-          <h2>ForwardFuture AI</h2>
+          <h2>🤖 ForwardFuture AI <span class="article-count">8</span></h2>
           
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" target="_blank">Neuromorphic Computers Solve Complex Physics Simulations</a></h3>
           <p class="snippet">Neuromorphic computers modeled after the human brain can now solve complex equations behind physics simulations — something once thought possible only with energy-hungry supercomputers.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://nathanbenaich.substack.com/p/state-of-ai-february-2026-newsletter" target="_blank">State of AI: February 2026 newsletter</a></h3>
           <p class="snippet">The gap between what AI systems can now do and what the market thinks that means has never been wider. Nearly $285B in market capitalisation has been wiped from software stocks in the space of two weeks.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://fortune.com/2026/02/12/matt-shumers-viral-blog-about-ais-looming-impact-on-knowledge-workers-is-based-on-flawed-assumptions/" target="_blank">Matt Shumer's viral AI impact post based on flawed assumptions</a></h3>
           <p class="snippet">AI Influencer Matt Shumer penned a viral blog on X about AI's potential to disrupt almost all knowledge work that has racked up more than 55 million views. Critics point to flawed assumptions about AI's capabilities.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.bbc.com/news/articles/cvgn2k285ypo" target="_blank">AI gold rush sees tech firms embracing 72-hour weeks</a></h3>
           <p class="snippet">The AI boom is driving tech companies to implement extended work schedules, with some firms pushing for 72-hour work weeks as they race to dominate the market.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.sciencedaily.com/releases/2026/01/260101160857.htm" target="_blank">Beyond silicon: Shape-shifting molecules could be future of AI hardware</a></h3>
           <p class="snippet">Scientists have developed molecular devices that can switch roles, behaving as memory, logic, or learning elements within the same structure — a potential breakthrough for AI hardware.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" target="_blank">AI Reads Brain MRIs in Seconds and Flags Emergencies</a></h3>
           <p class="snippet">New AI system can analyze brain MRI scans in seconds and automatically flag emergency conditions, potentially saving critical time in stroke and trauma cases.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://opentools.ai/news" target="_blank">Latest AI News: Daily Updated Insights</a></h3>
           <p class="snippet">Daily updated artificial intelligence news and insights covering the latest breakthroughs, tools, and industry developments.</p>
         </div>
       
-        <div class="article">
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
           <h3><a href="https://www.reuters.com/technology/artificial-intelligence/" target="_blank">Reuters AI News | Latest Headlines and Developments</a></h3>
           <p class="snippet">Comprehensive coverage of artificial intelligence news from AI breakthroughs and technology trends to regulation, ethics, business and global impact.</p>
         </div>
@@ -204,44 +408,52 @@
       
 
         <section class="source-section">
-          <h2>AI Trends</h2>
+          <h2>⚡ AI Trends <span class="article-count">8</span></h2>
           
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" target="_blank">The Breakthrough That Makes Robot Faces Feel Less Creepy</a></h3>
           <p class="snippet">Humans pay enormous attention to lips during conversation, and robots have struggled badly to keep up. A new robot developed at Columbia Engineering learned realistic lip movements by watching itself in a mirror.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://dev.to/chx381/ai-tech-trends-2026-architectures-efficiency-and-emerging-practices-3o18" target="_blank">AI Tech Trends 2026: Architectures, Efficiency, and Emerging Practices</a></h3>
           <p class="snippet">2026 is witnessing unprecedented advancements in AI architecture, efficiency optimization, and emerging practices shaping the future of artificial intelligence.</p>
         </div>
       
-        <div class="article">
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
           <h3><a href="https://dev.to/chx381/ai-technology-trends-2026-latest-developments-and-future-directions-47o4" target="_blank">AI Technology Trends 2026: Latest Developments and Future Directions</a></h3>
           <p class="snippet">The intersection of quantum computing and machine learning is producing remarkable results as AI technology evolves in unexpected directions.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.simplilearn.com/tutorials/deep-learning-tutorial/deep-learning-algorithm" target="_blank">Top 10 Deep Learning Algorithms You Should Know in 2026</a></h3>
           <p class="snippet">Comprehensive guide to the top 10 Deep Learning Algorithms including CNN, LSTM, RNN, GAN, and more to enhance your knowledge in AI and machine learning.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://aninews.in/news/national/general-news/rajnath-singh-calls-gtre-foundation-of-indias-strategic-capability-sets-five-year-target-for-aero-engine-breakthrough20260216144829/" target="_blank">Rajnath Singh sets five-year target for Aero Engine breakthrough</a></h3>
           <p class="snippet">Defense Minister emphasizes AI, Machine Learning, and advanced materials as critical to staying ahead in 6th generation technology development.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://en.wikipedia.org/wiki/Generative_artificial_intelligence" target="_blank">Generative AI Improvements in Image Classification and NLP</a></h3>
           <p class="snippet">Deep learning technology led to improvements in image classification, speech recognition, natural language processing and other tasks, revolutionizing AI capabilities.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://en.wikipedia.org/wiki/Artificial_intelligence" target="_blank">Artificial Intelligence Applications in 2020s</a></h3>
           <p class="snippet">AI and machine learning technology is used in most of the essential applications of the 2020s. Improvements in GPUs have followed Huang's law, accelerating AI development.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://wisdomconferences.com/artificialintelligence/" target="_blank">Best AI & Machine Learning Conference 2026</a></h3>
           <p class="snippet">Global AI and Machine Learning summit in Tokyo, October 2026. Join expert talks and network with leaders in artificial intelligence and machine learning.</p>
         </div>
@@ -250,44 +462,52 @@
       
 
         <section class="source-section">
-          <h2>Ad Tech Trends</h2>
+          <h2>🎯 Ad Tech Trends <span class="article-count">8</span></h2>
           
-        <div class="article">
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
           <h3><a href="https://www.futuremarketreport.com/industry-report/programmaticingadvertising-market" target="_blank">Programmatic Advertising Market Rapid Growth</a></h3>
           <p class="snippet">With increasing digital content consumption and expanding internet accessibility worldwide, programmatic advertising is rapidly becoming the preferred strategy for marketing campaigns.</p>
         </div>
       
-        <div class="article">
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
           <h3><a href="https://www.adexchanger.com/data-driven-thinking/when-conversation-becomes-inventory-how-openai-could-reshape-digital-advertising/" target="_blank">OpenAI Reshapes Digital Advertising</a></h3>
           <p class="snippet">Conversational AI platforms like ChatGPT are creating new advertising inventory categories, fundamentally changing how brands can reach consumers through AI interactions.</p>
         </div>
       
-        <div class="article">
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
           <h3><a href="https://www.adexchanger.com/publishers/how-publishers-are-testing-amazons-prebid-adapter-for-incremental-yield/" target="_blank">Amazon Prebid Adapter Tests for Publishers</a></h3>
           <p class="snippet">Publishers testing Amazon's Prebid integration are seeing promising incremental yield improvements while maintaining header bidding efficiency.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.adexchanger.com/tv/roku-uses-its-q4-earnings-call-to-make-the-case-for-ai/" target="_blank">Roku AI Advertising Platform</a></h3>
           <p class="snippet">Roku positions itself as the AI-first smart TV advertising platform, leveraging machine learning for better targeting and measurement.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://www.adexchanger.com/marketers/say-hello-to-sage-the-latest-agentic-ai-platform/" target="_blank">iSpot Launches SAGE Agentic AI</a></h3>
           <p class="snippet">Ad measurement firm iSpot introduces SAGE, an agentic AI platform for media buyers to simplify streaming TV campaign planning and workflow automation.</p>
         </div>
       
-        <div class="article">
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
           <h3><a href="https://www.adexchanger.com/mobile/applovin-takes-on-haters-and-doubters-as-it-lays-out-its-ecommerce-ad-ambitions/" target="_blank">AppLovin Ecommerce Ad Expansion</a></h3>
           <p class="snippet">AppLovin doubles down on ecommerce advertising despite market skepticism, betting on AI-powered mobile-first targeting capabilities.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://digiday.com/marketing/as-youtube-chases-tv-budgets-its-still-holding-onto-its-roots/" target="_blank">YouTube Premium TV Advertising Push</a></h3>
           <p class="snippet">YouTube balances premium TV advertising aspirations with its roots in creator economy and short-form content to capture upmarket budgets.</p>
         </div>
       
-        <div class="article">
+        <div class="article ">
+          
           <h3><a href="https://digiday.com/marketing/ai-is-changing-how-retailers-select-tech-partners/" target="_blank">AI Changing Retail Tech Partner Selection</a></h3>
           <p class="snippet">Retailers fundamentally reshaping how they evaluate and select advertising technology partners in the AI era, prioritizing integration and automation capabilities.</p>
         </div>
