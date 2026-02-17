@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ross' Daily AI & Ad Tech Briefing - Monday, February 16, 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header {
+      border-bottom: 3px solid #1E40AF;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #1E40AF;
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+    .date {
+      color: #666;
+      font-size: 0.95em;
+    }
+    
+    /* Executive Summary */
+    .executive-summary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .executive-summary h2 {
+      color: white;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .summary-points {
+      list-style: none;
+      font-size: 0.95em;
+    }
+    .summary-points li {
+      margin-bottom: 8px;
+      padding-left: 5px;
+    }
+    
+    /* Trending Entities */
+    .trending-entities {
+      background: #FEF3C7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .trending-entities h2 {
+      color: #92400E;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .entity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .entity-tag {
+      background: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .entity-tag .count {
+      background: #F59E0B;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.85em;
+      margin-left: 5px;
+    }
+    
+    /* Day Comparison */
+    .day-comparison {
+      background: #EFF6FF;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .day-comparison h2 {
+      color: #1E3A8A;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .comparison-group {
+      margin-bottom: 15px;
+    }
+    .comparison-group:last-child {
+      margin-bottom: 0;
+    }
+    .comparison-group h3 {
+      font-size: 1em;
+      margin-bottom: 10px;
+      color: #1E3A8A;
+    }
+    .topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topic-pill {
+      background: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .topic-pill.new {
+      border-left: 3px solid #10B981;
+    }
+    .topic-pill.continuing {
+      border-left: 3px solid #6366F1;
+    }
+    
+    /* Source Sections */
+    .source-section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #1E40AF;
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-count {
+      background: #E5E7EB;
+      color: #666;
+      font-size: 0.65em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+    
+    /* Articles */
+    .article {
+      margin-bottom: 20px;
+      padding-left: 15px;
+      border-left: 3px solid #F59E0B;
+      position: relative;
+    }
+    .article.priority {
+      border-left-color: #DC2626;
+      background: #FEF2F2;
+      padding: 15px;
+      padding-left: 15px;
+      border-radius: 4px;
+    }
+    .priority-badge {
+      display: inline-block;
+      background: #DC2626;
+      color: white;
+      font-size: 0.75em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .article h3 {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
+    .article a {
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article a:hover {
+      color: #1E40AF;
+    }
+    .snippet {
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #E5E7EB;
+      text-align: center;
+      color: #666;
+      font-size: 0.85em;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .entity-tags, .topic-pills {
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🗝️ Ross' Daily AI & Ad Tech Briefing</h1>
+      <p class="date">Monday, February 16, 2026</p>
+    </header>
+    
+    
+    <section class="executive-summary">
+      <h2>📋 Executive Summary</h2>
+      <ul class="summary-points">
+        <li>📌 AppLovin's Explosive AdTech Growth At A Discount - Upgrade Buy</li><li>🔥 Trending: AI (13), X (6), AppLovin (2)</li><li>📰 14 articles across 6 sources</li>
+      </ul>
+    </section>
+  
+    
+    <section class="trending-entities">
+      <h2>🔥 Trending Today</h2>
+      <div class="entity-tags">
+        
+          <span class="entity-tag">AI <span class="count">13</span></span>
+        
+          <span class="entity-tag">X <span class="count">6</span></span>
+        
+          <span class="entity-tag">AppLovin <span class="count">2</span></span>
+        
+          <span class="entity-tag">programmatic <span class="count">1</span></span>
+        
+          <span class="entity-tag">Meta <span class="count">1</span></span>
+        
+          <span class="entity-tag">Claude <span class="count">1</span></span>
+        
+      </div>
+    </section>
+  
+    
+    <section class="day-comparison">
+      <h2>📅 New vs Continuing</h2>
+      
+      
+        <div class="comparison-group">
+          <h3>🔄 Continuing Stories</h3>
+          <div class="topic-pills">
+            <span class="topic-pill continuing">buying</span><span class="topic-pill continuing">briefing</span><span class="topic-pill continuing">attivo</span><span class="topic-pill continuing">breathes</span><span class="topic-pill continuing">holliday</span>
+          </div>
+        </div>
+      
+    </section>
+  
+    
+        <section class="source-section">
+          <h2>📰 Digiday <span class="article-count">1</span></h2>
+          
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
+          <h3><a href="https://digiday.com/media-buying/media-buying-briefing-attivo-breathes-new-life-into-hill-holliday-and-dny-with-senior-media-hires/" target="_blank">Media Buying Briefing: Attivo breathes new life into Hill Holliday and DNY with senior media hires</a></h3>
+          <p class="snippet">In his Future of TV Briefing, Tim Peterson cites research that shows error rate for matches between IP and deterministic IDs like email addresses in CTV advertising can exceed 84%, a shockingly high number. I covered Salt XC's acquisition of Craft & Commerce, a union of independents that brings a Canadian firm deeper into U.S. territory.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🤖 ForwardFuture AI <span class="article-count">1</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.forwardfuture.ai/p/what-people-are-actually-doing-with-openclaw-25-use-cases" target="_blank">🦞 What People Are Actually Doing With OpenClaw: 25+ Use Cases</a></h3>
+          <p class="snippet">You're already using AI, but it feels limited You know AI can help, but you're tired of copying and pasting between windows.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>⚡ AI Trends <span class="article-count">4</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.reuters.com/technology/artificial-intelligence/" target="_blank">Reuters AI News | Latest Headlines and Developments | Reuters</a></h3>
+          <p class="snippet">Explore the latest artificial intelligence news with Reuters - from AI breakthroughs and technology trends to regulation, ethics, business and global impact.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.openpr.com/news/4391216/key-strategic-factors-and-emerging-trends-shaping" target="_blank">Key Strategic Factors and Emerging Trends Shaping the Artificial Intelligence (AI) in Nanotechnology Market Landscape</a></h3>
+          <p class="snippet">This innovative framework accelerates machine learning-guided self-assembly simulations, autonomous experiment control to validate structural hypotheses, and pattern recognition techniques to uncover previously undetected nanoscale features.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://dev.to/chx381/ai-technology-trends-2026-latest-developments-and-future-directions-47o4" target="_blank">AI Technology Trends 2026: Latest Developments and Future Directions</a></h3>
+          <p class="snippet">The artificial intelligence landscape continues to evolve at an unprecedented pace in 2026, with groundbreaking developments in machine learning, natural language processing, and computer vision.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://aijourn.com/why-learning-ai-is-critical-for-the-next-generation-of-cybersecurity-experts/" target="_blank">Why Learning AI is Critical for the Next Generation of Cybersecurity Experts</a></h3>
+          <p class="snippet">Continuous Learning: Models keep improving as new data becomes available, enhancing defences without the need for retraining. Scalable Surveillance: AI can handle unlimited alerts, regardless of cloud and IoT.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🎯 Ad Tech Trends <span class="article-count">2</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.futuremarketreport.com/industry-report/programmaticingadvertising-market" target="_blank">Programmatic Advertising Market Size, Share, Growth | CAGR Forecast</a></h3>
+          <p class="snippet">With the increasing consumption of digital content and expansion of internet accessibility worldwide, programmatic advertising is rapidly becoming the preferred strategy for marketing campaigns.</p>
+        </div>
+      
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
+          <h3><a href="https://seekingalpha.com/article/4870462-applovin-explosive-adtech-growth-at-a-discount-upgrade-buy" target="_blank">AppLovin's Explosive AdTech Growth At A Discount - Upgrade Buy</a></h3>
+          <p class="snippet">AppLovin (APP) stock upgraded despite prior correction, attributed to the decelerating growth concerns.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🐦 X Trends <span class="article-count">6</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://markets.financialcontent.com/stocks/article/marketminute-2026-2-16-metas-ai-engine-ignites-24-ad-growth-even-as-total-revenue-growth-moderates-to-3" target="_blank">Meta's AI Engine Ignites 24% Ad Growth</a></h3>
+          <p class="snippet">Meta's performance is a bellwether for the broader 'Utility AI' trend that is dominating 2026. The industry has moved past the 'chatbot hype' of 2023-2024 and into a phase of deep integration where AI is invisible but ubiquitous.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.businessinsider.com/ai-second-wave-redefines-startups-new-products-2026-2" target="_blank">AI's Second Wave: Building Things We've Never Seen</a></h3>
+          <p class="snippet">Startup CEOs like Kylan Gibbs and Sara Beykpour talk about AI's Second Wave, focusing on creating new products beyond cost-cutting.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.pymnts.com/artificial-intelligence-2/2026/tech-giants-look-to-bridge-ai-and-publishing-worlds/" target="_blank">Tech Giants Look to Bridge AI and Publishing Worlds</a></h3>
+          <p class="snippet">Publishers increasingly favor usage-based compensation models that scale with how often AI systems rely on their content, rather than flat licensing fees.</p>
+        </div>
+      
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
+          <h3><a href="https://markets.financialcontent.com/stocks/article/marketminute-2026-2-16-applovins-rollercoaster-week-is-ai-the-architect-of-growth-or-the-harbinger-of-disruption" target="_blank">AppLovin's Rollercoaster Week: Is AI the Architect of Growth or the Harbinger of Disruption?</a></h3>
+          <p class="snippet">Whether specialized discovery platforms can survive in an era where AI can generate infinite content and automate the very processes that once required proprietary algorithms.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.dexerto.com/entertainment/ai-apologizes-for-deleting-family-photos-after-dev-tries-to-organize-wifes-computer-3319640/" target="_blank">AI Apologizes for Deleting Family Photos</a></h3>
+          <p class="snippet">Claude Cowork accidentally deleted a folder with all family photos while trying to organize desktop files.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.simplilearn.com/online-digital-marketing-trends-article" target="_blank">Top Digital Marketing Trends Of 2026</a></h3>
+          <p class="snippet">Unearth the top digital marketing trends now & craft campaigns that convert.</p>
+        </div>
+      
+        </section>
+      
+    
+    <footer>
+      Curated by Locke for Ross • <a href="https://e-837.github.io/daily-briefing/">Archive</a>
+    </footer>
+  </div>
+</body>
+</html>
