@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ross' Daily AI & Ad Tech Briefing - Friday, February 20, 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header {
+      border-bottom: 3px solid #1E40AF;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #1E40AF;
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+    .date {
+      color: #666;
+      font-size: 0.95em;
+    }
+    
+    /* So What For You */
+    .so-what {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 22px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      border-left: 4px solid #F59E0B;
+    }
+    .so-what h2 {
+      color: #F59E0B;
+      border: none;
+      margin-bottom: 4px;
+      font-size: 1.2em;
+    }
+    .so-what-subtitle {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8em;
+      margin-bottom: 14px;
+    }
+    .so-what-points {
+      list-style: none;
+      font-size: 0.92em;
+      line-height: 1.7;
+    }
+    .so-what-points li {
+      margin-bottom: 10px;
+      padding-left: 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 10px;
+    }
+    .so-what-points li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .so-what-points strong {
+      color: #F59E0B;
+    }
+
+    /* Executive Summary */
+    .executive-summary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .executive-summary h2 {
+      color: white;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .summary-points {
+      list-style: none;
+      font-size: 0.95em;
+    }
+    .summary-points li {
+      margin-bottom: 8px;
+      padding-left: 5px;
+    }
+    
+    /* Trending Entities */
+    .trending-entities {
+      background: #FEF3C7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .trending-entities h2 {
+      color: #92400E;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .entity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .entity-tag {
+      background: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .entity-tag .count {
+      background: #F59E0B;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.85em;
+      margin-left: 5px;
+    }
+    
+    /* Day Comparison */
+    .day-comparison {
+      background: #EFF6FF;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .day-comparison h2 {
+      color: #1E3A8A;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .comparison-group {
+      margin-bottom: 15px;
+    }
+    .comparison-group:last-child {
+      margin-bottom: 0;
+    }
+    .comparison-group h3 {
+      font-size: 1em;
+      margin-bottom: 10px;
+      color: #1E3A8A;
+    }
+    .topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topic-pill {
+      background: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .topic-pill.new {
+      border-left: 3px solid #10B981;
+    }
+    .topic-pill.continuing {
+      border-left: 3px solid #6366F1;
+    }
+    
+    /* Source Sections */
+    .source-section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #1E40AF;
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-count {
+      background: #E5E7EB;
+      color: #666;
+      font-size: 0.65em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+    
+    /* Articles */
+    .article {
+      margin-bottom: 20px;
+      padding-left: 15px;
+      border-left: 3px solid #F59E0B;
+      position: relative;
+    }
+    .article.priority {
+      border-left-color: #DC2626;
+      background: #FEF2F2;
+      padding: 15px;
+      padding-left: 15px;
+      border-radius: 4px;
+    }
+    .priority-badge {
+      display: inline-block;
+      background: #DC2626;
+      color: white;
+      font-size: 0.75em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .article h3 {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
+    .article a {
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article a:hover {
+      color: #1E40AF;
+    }
+    .snippet {
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #E5E7EB;
+      text-align: center;
+      color: #666;
+      font-size: 0.85em;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .entity-tags, .topic-pills {
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🗝️ Ross' Daily AI & Ad Tech Briefing</h1>
+      <p class="date">Friday, February 20, 2026</p>
+    </header>
+    
+    
+    <section class="so-what">
+      <h2>🎯 So What For You</h2>
+      <p class="so-what-subtitle">Filtered through your lens: AI Manager, digital media org</p>
+      <ul class="so-what-points">
+        <li>📊 <strong>Leadership data point:</strong> In graphic detail: The state of the marketing agency sector — useful stat for your next AI adoption conversation internally.</li><li>🏢 <strong>Agency angle:</strong> "In graphic detail: The state of the marketing agency sector" — worth tracking if your org works with agency partners or monitors holding company AI moves.</li><li>📰 <strong>Media org watch:</strong> "Media Briefing: Publishers explore selling AI visibility know-how to brands" — directly relevant to how AI is reshaping the media side of your industry.</li><li>🤖 <strong>AI tooling update:</strong> "AI Data Center Revolt, OpenClaw Security, & India AI Boom" — potential relevance to your team's AI toolkit or vendor evaluations.</li>
+      </ul>
+    </section>
+  
+    
+    <section class="executive-summary">
+      <h2>📋 Executive Summary</h2>
+      <ul class="summary-points">
+        <li>📌 Ad Tech Says It's Not In The Surveillance Business. Now Is The Time To Prove It</li><li>🔥 Trending: AI (23), X (10), Google (5)</li><li>📰 26 articles across 7 sources</li>
+      </ul>
+    </section>
+  
+    
+    <section class="trending-entities">
+      <h2>🔥 Trending Today</h2>
+      <div class="entity-tags">
+        
+          <span class="entity-tag">AI <span class="count">23</span></span>
+        
+          <span class="entity-tag">X <span class="count">10</span></span>
+        
+          <span class="entity-tag">Google <span class="count">5</span></span>
+        
+          <span class="entity-tag">Microsoft <span class="count">3</span></span>
+        
+          <span class="entity-tag">Amazon <span class="count">2</span></span>
+        
+          <span class="entity-tag">ChatGPT <span class="count">2</span></span>
+        
+          <span class="entity-tag">GPT <span class="count">2</span></span>
+        
+          <span class="entity-tag">OpenAI <span class="count">2</span></span>
+        
+      </div>
+    </section>
+  
+    
+    <section class="day-comparison">
+      <h2>📅 New vs Continuing</h2>
+      
+        <div class="comparison-group">
+          <h3>🆕 New Topics Today</h3>
+          <div class="topic-pills">
+            <span class="topic-pill new">surveillance</span><span class="topic-pill new">business</span><span class="topic-pill new">agency</span><span class="topic-pill new">sector</span><span class="topic-pill new">mental</span>
+          </div>
+        </div>
+      
+      
+        <div class="comparison-group">
+          <h3>🔄 Continuing Stories</h3>
+          <div class="topic-pills">
+            <span class="topic-pill continuing">graphic</span><span class="topic-pill continuing">detail</span><span class="topic-pill continuing">marketing</span><span class="topic-pill continuing">briefing</span><span class="topic-pill continuing">publishers</span>
+          </div>
+        </div>
+      
+    </section>
+  
+    
+        <section class="source-section">
+          <h2>📊 AdExchanger <span class="article-count">1</span></h2>
+          
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
+          <h3><a href="https://www.adexchanger.com/data-driven-thinking/ad-tech-says-its-not-in-the-surveillance-business-now-is-the-time-to-prove-it/" target="_blank">Ad Tech Says It's Not In The Surveillance Business. Now Is The Time To Prove It</a></h3>
+          <p class="snippet">Is this a slippery slope from commercial ad tech to government surveillance? Should vendors have even responded? Where are the ethical red lines? These important questions linger because the industry reaction was deafening. There were a handful of news stories and a brief flash of outrage on LinkedIn when the RFI dropped.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📰 Digiday <span class="article-count">3</span></h2>
+          
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
+          <h3><a href="https://digiday.com/marketing/in-graphic-detail-the-state-of-the-marketing-agency-sector/" target="_blank">In graphic detail: The state of the marketing agency sector</a></h3>
+          <p class="snippet">Employment figures published by Britain's Institute of Practitioners in Advertising (IPA) show a long-term trend playing out. Agencies staffed up during the pandemic years, but are now tightening their belts. At least some of that is in response to AI; 24% of British agencies expect to cut staff this year as a result of the technology.</p>
+        </div>
+      
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
+          <h3><a href="https://digiday.com/media/media-briefing-publishers-explore-selling-ai-visibility-know-how-to-brands/" target="_blank">Media Briefing: Publishers explore selling AI visibility know-how to brands</a></h3>
+          <p class="snippet">Turning scraped content into paid assets — Amazon and Microsoft build AI marketplaces. ChatGPT enters the ad game. Now what? Publishers are finding new ways to monetize their AI expertise.</p>
+        </div>
+      
+        <div class="article priority">
+          <span class="priority-badge">⭐ Must Read</span>
+          <h3><a href="https://digiday.com/marketing/future-of-marketing-briefing-the-mental-gymnastics-of-principal-media/" target="_blank">Future of Marketing Briefing: The mental gymnastics of principal media</a></h3>
+          <p class="snippet">Many agency contracts historically sat untouched for years, drafted in an era when agencies were presumed brokers rather than counter parties. That governance lag allowed ambiguity to persist. A recent Forrester report underscored how uneven that evolution remains.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📌 ForwardFuture <span class="article-count">1</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.forwardfuture.ai/p/ai-data-center-revolt-openclaw-security-india-ai-boom" target="_blank">AI Data Center Revolt, OpenClaw Security, & India AI Boom</a></h3>
+          <p class="snippet">AI data center protests, OpenClaw security concerns, India ChatGPT growth, IBM hiring shift, Google voice lawsuit, Kimi Claw launch.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>⚡ AI Trends <span class="article-count">6</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://opentools.ai/news" target="_blank">Latest AI News: Daily Updated Artificial Intelligence Insights (February 20, 2026)</a></h3>
+          <p class="snippet">Stay informed with our daily curated artificial intelligence news and insights. We bring you the most important updates in AI, machine learning, and emerging technologies.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.reuters.com/technology/artificial-intelligence/" target="_blank">Reuters AI News | Latest Headlines and Developments</a></h3>
+          <p class="snippet">Bill Gates cancels appearance at India AI summit amid Epstein scrutiny. Nvidia close to investing $30 billion in OpenAI's mega funding round. Modi's AI unity pose turns awkward for Altman and Amodei.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://itbrief.co.uk/story/ai-tops-2026-industrial-tech-radar-as-maturity-gaps-grow" target="_blank">AI tops 2026 industrial tech radar as maturity gaps grow</a></h3>
+          <p class="snippet">AI tops IoT Analytics' 2026 industrial tech radar as firms chase less mature trends while core connectivity and compute quietly solidify.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://business.adobe.com/resources/digital-trends-report.html" target="_blank">Adobe AI and Digital Trends 2026: GenAI and Agentic AI Insights</a></h3>
+          <p class="snippet">Global survey of 3,000 executives and practitioners in CX roles reveals early wins from generative AI and ambitious plans for agentic AI.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.ecommerceupdate.org/en/noticias/apos-o-hype-ia-assume-papel-de-motor-de-roi-nas-empresas-em-2026/" target="_blank">After the hype, AI will take on the role of ROI driver for companies in 2026</a></h3>
+          <p class="snippet">Artificial intelligence enters 2026 under a more pragmatic logic. According to the Tech Trends 2026 report by Globant, the technology leaves the experimental field and begins to be charged for generating measurable value, focusing on ROI and governance.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.mainlandmoment.com/ai-revolution-in-industry/" target="_blank">AI Revolution In Industry 2026: 7 Powerful Shifts No One Is Ready For</a></h3>
+          <p class="snippet">The use of hyper-automation through AI and robotic process automation (RPA) will be changing the way businesses perform their day-to-day operations in 2026.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📌 VentureBeat AI <span class="article-count">5</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/technology/google-launches-gemini-3-1-pro-retaking-ai-crown-with-2x-reasoning" target="_blank">Google launches Gemini 3.1 Pro, retaking AI crown with 2X+ reasoning performance boost</a></h3>
+          <p class="snippet">Evaluations by third-party firm Artificial Analysis show that Google's Gemini 3.1 Pro has leapt to the front of the pack and is once more the most powerful and performant AI model in the world.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/technology/google-gemini-3-1-pro-first-impressions-a-deep-think-mini-with-adjustable" target="_blank">Google Gemini 3.1 Pro first impressions: a 'Deep Think Mini' with adjustable reasoning on demand</a></h3>
+          <p class="snippet">For the past three months, Google's Gemini 3 Pro has held its ground as one of the most capable frontier models available. But in the fast-moving world of AI, three months is a lifetime — and competitors have not been standing still.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/data/the-last-mile-data-problem-is-stalling-enterprise-agentic-ai-golden" target="_blank">The 'last-mile' data problem is stalling enterprise agentic AI — 'golden pipelines' aim to fix it</a></h3>
+          <p class="snippet">Empromptu calls this distinction 'inference integrity' versus 'reporting integrity.' Golden pipelines integrate normalization directly into the AI application workflow, collapsing what typically requires 14 days of manual engineering into under an hour.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/data/rapidata-emerges-to-shorten-ai-model-development-cycles-from-months-to-days" target="_blank">Rapidata emerges to shorten AI model development cycles from months to days with near real-time RLHF</a></h3>
+          <p class="snippet">Rapidata treats RLHF as high-speed infrastructure rather than a manual labor problem. The company announced its emergence with an $8.5 million seed round.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/security/cx-security-gaps-ai-stack-blind-spots" target="_blank">How attackers hit 700 organizations through CX platforms your SOC already approved</a></h3>
+          <p class="snippet">These platforms now connect to HRIS, CRM, and compensation engines. Qualtrics alone processes 3.5 billion interactions annually, a figure that has doubled since 2023.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📌 Nieman Lab <span class="article-count">2</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://restructurednews.substack.com/p/the-future-of-predictions" target="_blank">The Future of Predictions: Building AI tools from Nieman journalism forecasts</a></h3>
+          <p class="snippet">How the barriers to entry and costs to building prototypes and learning how AI tools work under-the-hood are collapsing. Researchers chose Nieman predictions for this experiment because they tend to be relatively short, clearly written, and have a single core idea, making them good candidates for building a simple RAG from scratch.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://ethanbholland.com/2026/01/17/ai-news-120-week-ending-january-16-2026-with-38-executive-summaries/" target="_blank">AI News Week Ending January 16, 2026: Audiences will increasingly access news through AI</a></h3>
+          <p class="snippet">Forecasts by 17 experts from around the world reveal five recurring themes: audiences will increasingly access news through AI, increased demand for verification work, and automation and agents will reshape newsrooms.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🐦 X Trends <span class="article-count">8</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://x.com/DCICyberSecNews/status/2024867758073094356" target="_blank">OpenAI pushes into higher education as India seeks to scale AI skills</a></h3>
+          <p class="snippet">OpenAI pushes into higher education as India seeks to scale AI skills — via @techcrunch https://techcrunch.com/2026/02/18/openai-pushes-into-higher-education-as-india-seeks-to-scale-ai-skills/</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/Worldnews_Media/status/2024866741281755623" target="_blank">Urgent research needed to tackle AI threats, says Google AI boss</a></h3>
+          <p class="snippet">Urgent research needed to tackle AI threats, says Google AI boss — BBC News https://www.bbc.com/news/articles/c0q3g0ln274o</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/The_Japan_News/status/2024869653273813320" target="_blank">Bill Gates Pulls out of India AI Summit Amid Epstein Scrutiny</a></h3>
+          <p class="snippet">Bill Gates Pulls out of India AI Summit Amid Epstein Scrutiny https://japannews.yomiuri.co.jp/news-services/reuters/20260220-312497/</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/NinasNews/status/2024871234887106724" target="_blank">US Plans Peace Corps Revamp to Gain Edge in AI Over China</a></h3>
+          <p class="snippet">US Plans Peace Corps Revamp to Gain Edge in AI Over China https://finance.yahoo.com/news/us-plans-peace-corps-revamp-000000008.html</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/360MarTech/status/2024830893676982540" target="_blank">WPP Media Unveils New Advertising Intelligence Framework</a></h3>
+          <p class="snippet">WPP Media Unveils New Advertising Intelligence Framework — MarTech360 https://martech360.com/mobile-tech/digital-advertising/wpp-media-unveils-new-advertising-intelligence-framework/</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/The_Artery/status/2024393668447043959" target="_blank">Google Shares Coming AI-Powered Ad Innovations</a></h3>
+          <p class="snippet">Google Shares Coming AI-Powered Ad Innovations — insights from Google's head of ads and commerce. https://www.socialmediatoday.com/news/google-shares-coming-ai-powered-ad-innovations/811986/</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/ZeeNews/status/2024875321934389723" target="_blank">Microsoft President: India has world's largest AI classroom</a></h3>
+          <p class="snippet">'India has the world's largest AI classroom,' says Microsoft President Brad Smith, calling New Delhi a global leader.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/maddbai/status/2024091541904527527" target="_blank">AI Marketplaces: Microsoft and Amazon build AI content marketplaces for publishers</a></h3>
+          <p class="snippet">Marketplaces are emerging as the next big opportunity for publishers partnering with AI firms, reports The Wall Street Journal. Microsoft and Amazon are leading the charge as the industry seeks new revenue streams.</p>
+        </div>
+      
+        </section>
+      
+    
+    <footer>
+      Curated by Locke for Ross • <a href="https://e-837.github.io/daily-briefing/">Archive</a>
+    </footer>
+  </div>
+</body>
+</html>
