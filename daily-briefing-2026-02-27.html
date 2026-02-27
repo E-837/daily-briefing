@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ross' Daily AI & Ad Tech Briefing - Friday, February 27, 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header {
+      border-bottom: 3px solid #1E40AF;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #1E40AF;
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+    .date {
+      color: #666;
+      font-size: 0.95em;
+    }
+    
+    /* So What For You */
+    .so-what {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 22px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      border-left: 4px solid #F59E0B;
+    }
+    .so-what h2 {
+      color: #F59E0B;
+      border: none;
+      margin-bottom: 4px;
+      font-size: 1.2em;
+    }
+    .so-what-subtitle {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8em;
+      margin-bottom: 14px;
+    }
+    .so-what-points {
+      list-style: none;
+      font-size: 0.92em;
+      line-height: 1.7;
+    }
+    .so-what-points li {
+      margin-bottom: 10px;
+      padding-left: 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 10px;
+    }
+    .so-what-points li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .so-what-points strong {
+      color: #F59E0B;
+    }
+
+    /* Executive Summary */
+    .executive-summary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .executive-summary h2 {
+      color: white;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .summary-points {
+      list-style: none;
+      font-size: 0.95em;
+    }
+    .summary-points li {
+      margin-bottom: 8px;
+      padding-left: 5px;
+    }
+    
+    /* Trending Entities */
+    .trending-entities {
+      background: #FEF3C7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .trending-entities h2 {
+      color: #92400E;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .entity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .entity-tag {
+      background: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .entity-tag .count {
+      background: #F59E0B;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.85em;
+      margin-left: 5px;
+    }
+    
+    /* Day Comparison */
+    .day-comparison {
+      background: #EFF6FF;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .day-comparison h2 {
+      color: #1E3A8A;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .comparison-group {
+      margin-bottom: 15px;
+    }
+    .comparison-group:last-child {
+      margin-bottom: 0;
+    }
+    .comparison-group h3 {
+      font-size: 1em;
+      margin-bottom: 10px;
+      color: #1E3A8A;
+    }
+    .topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topic-pill {
+      background: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .topic-pill.new {
+      border-left: 3px solid #10B981;
+    }
+    .topic-pill.continuing {
+      border-left: 3px solid #6366F1;
+    }
+    
+    /* Source Sections */
+    .source-section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #1E40AF;
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-count {
+      background: #E5E7EB;
+      color: #666;
+      font-size: 0.65em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+    
+    /* Articles */
+    .article {
+      margin-bottom: 20px;
+      padding-left: 15px;
+      border-left: 3px solid #F59E0B;
+      position: relative;
+    }
+    .article.priority {
+      border-left-color: #DC2626;
+      background: #FEF2F2;
+      padding: 15px;
+      padding-left: 15px;
+      border-radius: 4px;
+    }
+    .priority-badge {
+      display: inline-block;
+      background: #DC2626;
+      color: white;
+      font-size: 0.75em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .article h3 {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
+    .article a {
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article a:hover {
+      color: #1E40AF;
+    }
+    .snippet {
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #E5E7EB;
+      text-align: center;
+      color: #666;
+      font-size: 0.85em;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .entity-tags, .topic-pills {
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🗝️ Ross' Daily AI & Ad Tech Briefing</h1>
+      <p class="date">Friday, February 27, 2026</p>
+    </header>
+    
+    
+    <section class="so-what">
+      <h2>🎯 So What For You</h2>
+      <p class="so-what-subtitle">Filtered through your lens: AI Manager, digital media org</p>
+      <ul class="so-what-points">
+        <li>📊 <strong>Leadership data point:</strong> AI Hype vs. Reality: Deloitte's Tech Trends 2026 Exposes the Gap Between Talk and Deployment — useful stat for your next AI adoption conversation internally.</li><li>🏢 <strong>Agency angle:</strong> "Future of Marketing Briefing: The case for and against an agency subscription remuneration model" — worth tracking if your org works with agency partners or monitors holding company AI moves.</li><li>📰 <strong>Media org watch:</strong> "Future of Marketing Briefing: The case for and against an agency subscription remuneration model" — directly relevant to how AI is reshaping the media side of your industry.</li><li>⚙️ <strong>Programmatic shift:</strong> "The AI Growth Machine: A Deep Dive into AppLovin's (APP) 2026 Momentum" — operational relevance for your digital media buying/planning work.</li>
+      </ul>
+    </section>
+  
+    
+    <section class="executive-summary">
+      <h2>📋 Executive Summary</h2>
+      <ul class="summary-points">
+        <li>🔥 Trending: AI (19), X (10), Meta (3)</li><li>📰 20 articles across 7 sources</li>
+      </ul>
+    </section>
+  
+    
+    <section class="trending-entities">
+      <h2>🔥 Trending Today</h2>
+      <div class="entity-tags">
+        
+          <span class="entity-tag">AI <span class="count">19</span></span>
+        
+          <span class="entity-tag">X <span class="count">10</span></span>
+        
+          <span class="entity-tag">Meta <span class="count">3</span></span>
+        
+          <span class="entity-tag">Anthropic <span class="count">2</span></span>
+        
+          <span class="entity-tag">Google <span class="count">2</span></span>
+        
+          <span class="entity-tag">Amazon <span class="count">1</span></span>
+        
+          <span class="entity-tag">AppLovin <span class="count">1</span></span>
+        
+          <span class="entity-tag">OpenAI <span class="count">1</span></span>
+        
+      </div>
+    </section>
+  
+    
+    <section class="day-comparison">
+      <h2>📅 New vs Continuing</h2>
+      
+        <div class="comparison-group">
+          <h3>🆕 New Topics Today</h3>
+          <div class="topic-pills">
+            <span class="topic-pill new">headwinds investors</span><span class="topic-pill new">investors reconsider</span><span class="topic-pill new">reconsider thesis</span><span class="topic-pill new">thesis objective</span><span class="topic-pill new">briefing against</span><span class="topic-pill new">against subscription</span>
+          </div>
+        </div>
+      
+      
+        <div class="comparison-group">
+          <h3>🔄 Continuing Stories</h3>
+          <div class="topic-pills">
+            <span class="topic-pill continuing">reality deloittes</span><span class="topic-pill continuing">deloittes trends</span><span class="topic-pill continuing">trends exposes</span><span class="topic-pill continuing">exposes deployment</span><span class="topic-pill continuing">briefing</span><span class="topic-pill continuing">trends</span>
+          </div>
+        </div>
+      
+    </section>
+  
+    
+        <section class="source-section">
+          <h2>📊 AdExchanger <span class="article-count">1</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/marketers/the-trade-desk-faces-headwinds-as-investors-reconsider-the-thesis-of-objective-indie-ad-tech/" target="_blank">The Trade Desk Faces Headwinds As Investors Reconsider The Thesis Of Objective Indie Ad Tech</a></h3>
+          <p class="snippet">Infillion, an ad tech business built on M&A, is back with another acquisition.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📰 Digiday <span class="article-count">2</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media-buying/future-of-marketing-briefing-the-case-for-and-against-an-agency-subscription-remuneration-model/" target="_blank">Future of Marketing Briefing: The case for and against an agency subscription remuneration model</a></h3>
+          <p class="snippet">The fight over principal media has moved on but advertisers are still catching up</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media/the-case-for-and-against-publisher-content-marketplaces/" target="_blank">The case for and against publisher content marketplaces</a></h3>
+          <p class="snippet">A coalition of major U.K. brands comprising the BBC, the Guardian, Financial Times, Sky News and Telegraph Media Group revealed this week a new publisher content marketplace effort.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>⚡ AI Trends <span class="article-count">6</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" target="_blank">Artificial Intelligence News -- ScienceDaily</a></h3>
+          <p class="snippet">Brain Inspired Machines Are Better at Math Than Expected. Neuromorphic computers modeled after the human brain can now solve the complex equations behind physics simulations. Also: AI Reads Brain MRIs in Seconds and Flags Emergencies.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.mylivingai.com/ai-trends-2026-openclaw-agents-reasoning-llms-and-more-sebastian-raschka-762/" target="_blank">AI Trends 2026: Agentic AI, Reasoning LLMs, and More [Sebastian Raschka]</a></h3>
+          <p class="snippet">The shift from raw model scaling to reasoning-focused post-training, inference-time techniques, and better tool integration. Sebastian explains why methods like self-consistency, self-refinement, and verifiable-reward reinforcement matter.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://quasa.io/media/ai-hype-vs-reality-deloitte-s-tech-trends-2026-exposes-the-gap-between-talk-and-deployment" target="_blank">AI Hype vs. Reality: Deloitte's Tech Trends 2026 Exposes the Gap Between Talk and Deployment</a></h3>
+          <p class="snippet">Deloitte spotlights 'physical AI' as a game-changer, where embodied intelligence in robots makes them cheaper than human labor. The humanoid robot market is exploding with a projected CAGR of 71%.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.artefact.com/blog/thought-leadership-piece-ai-and-data-trends-leading-the-way-in-2026/" target="_blank">Thought Leadership Piece - AI and Data trends leading the way in 2026 - Artefact</a></h3>
+          <p class="snippet">With tens of billions of intelligent devices now operating globally, AI at the edge is no longer a niche capability but a foundational layer of modern digital infrastructure. The focus will shift from experimentation to intent.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://markets.financialcontent.com/stocks/article/finterra-2026-2-27-the-ai-growth-machine-a-deep-dive-into-applovins-app-2026-momentum" target="_blank">The AI Growth Machine: A Deep Dive into AppLovin's (APP) 2026 Momentum</a></h3>
+          <p class="snippet">AppLovin's AXON 2.0 utilizes deep learning to calibrate bids almost instantly. In early 2026, AppLovin launched its AXON-powered e-commerce suite, allowing Shopify and Amazon sellers to run targeted mobile ads with ROAS that matches or exceeds Meta's Audience Network.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://llm-stats.com/llm-updates" target="_blank">AI Updates Today (February 2026) – Latest AI Model Releases</a></h3>
+          <p class="snippet">Key trends include reasoning models (OpenAI o1, DeepSeek-R1) trading speed for accuracy, multimodal capabilities becoming standard across frontier models, and efficiency improvements delivering GPT-4-level performance at dramatically lower costs.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📌 VentureBeat AI <span class="article-count">1</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/ai/perplexity-launches-computer-ai-agent-that-coordinates-19-models-priced-at" target="_blank">Perplexity launches 'Computer' AI agent that coordinates 19 models, priced at $200 a month</a></h3>
+          <p class="snippet">Perplexity, the AI-powered search company valued at $20 billion, launched a multi-model agent orchestration platform called Computer that coordinates 19 different AI models to complete complex, long-running workflows entirely in the background.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🐦 X Trends <span class="article-count">10</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://x.com/washingtonpost/status/2027413616123588871" target="_blank">@washingtonpost</a></h3>
+          <p class="snippet">Exclusive: Anthropic and the U.S. military are heading toward a clash over government use of AI — and whether it should be allowed to kill. The Pentagon has given Anthropic until 5:01 p.m. EST Friday to drop its objections.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/IndianVCA/status/2027413596083195922" target="_blank">@IndianVCA</a></h3>
+          <p class="snippet">Anthropic acquires computer-use AI startup Vercept after Meta poached one of its founders.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/elbetzio/status/2027413593428230505" target="_blank">@elbetzio</a></h3>
+          <p class="snippet">Netflix is done with AI pirates! ByteDance's Seedance 2.0 is remixing Hollywood hits, and Netflix wants it stopped NOW. Courtroom drama incoming.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/shopifreaks/status/2027413588210487804" target="_blank">@shopifreaks</a></h3>
+          <p class="snippet">Perplexity accuses Dow Jones of manipulating AI results in lawsuit.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/MergerSales/status/2027413583206703337" target="_blank">@MergerSales</a></h3>
+          <p class="snippet">Block says AI will let it cut more than 4,000 jobs. Some argue that's not the whole story.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/BigIdeas4SB/status/2027413572611940788" target="_blank">@BigIdeas4SB</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/maddbai/status/2026628257299173767" target="_blank">@maddbai</a></h3>
+          <p class="snippet">AI is transforming TV advertising, and it's not just a trend. AdAge's latest piece features MNTN's CEO Mark Douglas on how AI is becoming indispensable, from Super Bowl ads to first-time advertisers.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/MarTech_Awards/status/2026771738135060578" target="_blank">@MarTech_Awards</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/GoogleAds/status/2021660510668661164" target="_blank">@GoogleAds</a></h3>
+          <p class="snippet">NEW: Soon, we're rolling out a new shopping ad format in AI Mode. This ad format is a new opportunity for retailers to fit naturally into the conversation, and show up in key moments of discovery.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/aryanXmahajan/status/2023796561214664943" target="_blank">@aryanXmahajan</a></h3>
+          <p class="snippet">AI agent generated $2B+ with Ads — and just killed manual creative research forever. No more doom-scrolling Meta Ad Library for hours. Just one prompt → full competitive intelligence in 60 seconds.</p>
+        </div>
+      
+        </section>
+      
+    
+    <footer>
+      Curated by Locke for Ross • <a href="https://e-837.github.io/daily-briefing/">Archive</a>
+    </footer>
+  </div>
+</body>
+</html>
