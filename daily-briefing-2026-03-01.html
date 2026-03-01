@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ross' Daily AI & Ad Tech Briefing - Sunday, March 1, 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header {
+      border-bottom: 3px solid #1E40AF;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #1E40AF;
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+    .date {
+      color: #666;
+      font-size: 0.95em;
+    }
+    
+    /* So What For You */
+    .so-what {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 22px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      border-left: 4px solid #F59E0B;
+    }
+    .so-what h2 {
+      color: #F59E0B;
+      border: none;
+      margin-bottom: 4px;
+      font-size: 1.2em;
+    }
+    .so-what-subtitle {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8em;
+      margin-bottom: 14px;
+    }
+    .so-what-points {
+      list-style: none;
+      font-size: 0.92em;
+      line-height: 1.7;
+    }
+    .so-what-points li {
+      margin-bottom: 10px;
+      padding-left: 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 10px;
+    }
+    .so-what-points li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .so-what-points strong {
+      color: #F59E0B;
+    }
+
+    /* Executive Summary */
+    .executive-summary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .executive-summary h2 {
+      color: white;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .summary-points {
+      list-style: none;
+      font-size: 0.95em;
+    }
+    .summary-points li {
+      margin-bottom: 8px;
+      padding-left: 5px;
+    }
+    
+    /* Trending Entities */
+    .trending-entities {
+      background: #FEF3C7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .trending-entities h2 {
+      color: #92400E;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .entity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .entity-tag {
+      background: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .entity-tag .count {
+      background: #F59E0B;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.85em;
+      margin-left: 5px;
+    }
+    
+    /* Day Comparison */
+    .day-comparison {
+      background: #EFF6FF;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .day-comparison h2 {
+      color: #1E3A8A;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .comparison-group {
+      margin-bottom: 15px;
+    }
+    .comparison-group:last-child {
+      margin-bottom: 0;
+    }
+    .comparison-group h3 {
+      font-size: 1em;
+      margin-bottom: 10px;
+      color: #1E3A8A;
+    }
+    .topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topic-pill {
+      background: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .topic-pill.new {
+      border-left: 3px solid #10B981;
+    }
+    .topic-pill.continuing {
+      border-left: 3px solid #6366F1;
+    }
+    
+    /* Source Sections */
+    .source-section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #1E40AF;
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-count {
+      background: #E5E7EB;
+      color: #666;
+      font-size: 0.65em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+    
+    /* Articles */
+    .article {
+      margin-bottom: 20px;
+      padding-left: 15px;
+      border-left: 3px solid #F59E0B;
+      position: relative;
+    }
+    .article.priority {
+      border-left-color: #DC2626;
+      background: #FEF2F2;
+      padding: 15px;
+      padding-left: 15px;
+      border-radius: 4px;
+    }
+    .priority-badge {
+      display: inline-block;
+      background: #DC2626;
+      color: white;
+      font-size: 0.75em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .article h3 {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
+    .article a {
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article a:hover {
+      color: #1E40AF;
+    }
+    .snippet {
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #E5E7EB;
+      text-align: center;
+      color: #666;
+      font-size: 0.85em;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .entity-tags, .topic-pills {
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🗝️ Ross' Daily AI & Ad Tech Briefing</h1>
+      <p class="date">Sunday, March 1, 2026</p>
+    </header>
+    
+    
+    <section class="so-what">
+      <h2>🎯 So What For You</h2>
+      <p class="so-what-subtitle">Filtered through your lens: AI Manager, digital media org</p>
+      <ul class="so-what-points">
+        <li>📊 <strong>Leadership data point:</strong> PubMatic Is All In On Agentic AI — useful stat for your next AI adoption conversation internally.</li><li>🏢 <strong>Agency angle:</strong> "WPP is betting its future on getting paid for outcomes" — worth tracking if your org works with agency partners or monitors holding company AI moves.</li><li>📰 <strong>Media org watch:</strong> "Inside The Epstein Files: Tracing His Links To Digital Advertising (So Far)" — directly relevant to how AI is reshaping the media side of your industry.</li><li>⚙️ <strong>Programmatic shift:</strong> "The Trade Desk Faces Headwinds As Investors Reconsider The Thesis Of Objective Indie Ad Tech" — operational relevance for your digital media buying/planning work.</li>
+      </ul>
+    </section>
+  
+    
+    <section class="executive-summary">
+      <h2>📋 Executive Summary</h2>
+      <ul class="summary-points">
+        <li>🔥 Trending: AI (30), X (16), programmatic (2)</li><li>📰 40 articles across 7 sources</li>
+      </ul>
+    </section>
+  
+    
+    <section class="trending-entities">
+      <h2>🔥 Trending Today</h2>
+      <div class="entity-tags">
+        
+          <span class="entity-tag">AI <span class="count">30</span></span>
+        
+          <span class="entity-tag">X <span class="count">16</span></span>
+        
+          <span class="entity-tag">programmatic <span class="count">2</span></span>
+        
+          <span class="entity-tag">DSP <span class="count">2</span></span>
+        
+          <span class="entity-tag">YouTube <span class="count">2</span></span>
+        
+          <span class="entity-tag">Netflix <span class="count">2</span></span>
+        
+          <span class="entity-tag">Anthropic <span class="count">2</span></span>
+        
+          <span class="entity-tag">Claude <span class="count">2</span></span>
+        
+      </div>
+    </section>
+  
+    
+    <section class="day-comparison">
+      <h2>📅 New vs Continuing</h2>
+      
+        <div class="comparison-group">
+          <h3>🆕 New Topics Today</h3>
+          <div class="topic-pills">
+            <span class="topic-pill new">pubmatic agentic</span><span class="topic-pill new">epstein tracing</span><span class="topic-pill new">freestar transparency</span><span class="topic-pill new">transparency programmatic</span><span class="topic-pill new">agentic adopting</span><span class="topic-pill new">adopting slowly</span>
+          </div>
+        </div>
+      
+      
+        <div class="comparison-group">
+          <h3>🔄 Continuing Stories</h3>
+          <div class="topic-pills">
+            <span class="topic-pill continuing">headwinds investors</span><span class="topic-pill continuing">investors reconsider</span><span class="topic-pill continuing">reconsider thesis</span><span class="topic-pill continuing">thesis objective</span><span class="topic-pill continuing">principal advertisers</span><span class="topic-pill continuing">advertisers catching</span>
+          </div>
+        </div>
+      
+    </section>
+  
+    
+        <section class="source-section">
+          <h2>📊 AdExchanger <span class="article-count">4</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/marketers/the-trade-desk-faces-headwinds-as-investors-reconsider-the-thesis-of-objective-indie-ad-tech/" target="_blank">The Trade Desk Faces Headwinds As Investors Reconsider The Thesis Of Objective Indie Ad Tech</a></h3>
+          <p class="snippet">The programmatic world is no longer eager simply to draft in TTD's wake. Now, SSPs, DSPs and other ad tech companies are jockeying with TTD for position or taking a more head-on approach.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/programmatic/pubmatic-is-all-in-on-agentic-ai/" target="_blank">PubMatic Is All In On Agentic AI</a></h3>
+          <p class="snippet">PubMatic's CEO predicted that by 2028, 25% of all digital advertising will be executed autonomously via agentic AI, growing to 50% by 2030. PubMatic launched AgenticOS and is participating in the Ad Context Protocol.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/marketers/inside-the-epstein-files-tracing-his-links-to-digital-advertising-so-far/" target="_blank">Inside The Epstein Files: Tracing His Links To Digital Advertising (So Far)</a></h3>
+          <p class="snippet">In 2026, publishers are prioritizing stability over scale as AI, automation and curation reshape the sell side.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/" target="_blank">Freestar CEO On Transparency In Programmatic Advertising</a></h3>
+          <p class="snippet">Freestar CEO Kurt Donnell explains why transparency in programmatic advertising is the open web's best bet for survival in the AI search era.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📰 Digiday <span class="article-count">8</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media-buying/the-fight-over-principal-media-has-moved-on-but-advertisers-are-still-catching-up/" target="_blank">The fight over principal media has moved on but advertisers are still catching up</a></h3>
+          <p class="snippet">The fight over principal media has moved on but advertisers are still catching up.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/marketing/agentic-with-a-small-a-cmos-are-adopting-ai-more-slowly-than-its-evolving/" target="_blank">'Agentic with a small a': CMOs are adopting AI more slowly than it's evolving</a></h3>
+          <p class="snippet">CMOs are adopting AI more slowly than it is evolving, as most brands focus on narrow use cases rather than full agentic deployment.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/marketing/the-rundown-why-youtube-has-become-key-for-brand-geo-strategies/" target="_blank">The Rundown: Why YouTube has become key for brand GEO strategies</a></h3>
+          <p class="snippet">Marketers worried about improving their brand's profile in LLM chatbot results have mostly focused on text, but YouTube is emerging as a key channel for generative engine optimization.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/future-of-tv/whats-behind-netflixs-ctv-market-share-jump/" target="_blank">What's behind Netflix's CTV market share jump?</a></h3>
+          <p class="snippet">Netflix's share of the global CTV ad market is set to more than double, rising from 3.7% to 9.2% by 2027, driven by price stabilization, growing advertiser confidence, live sports programming and Amazon DSP access.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/future-of-tv/future-of-tv-briefing-netflixs-in-house-ad-platform-launch-has-led-some-advertisers-to-double-spend/" target="_blank">Future of TV Briefing: Netflix's in-house ad platform launch has led some advertisers to double spend</a></h3>
+          <p class="snippet">Nearly a year after introducing Netflix Ads Suite (NAS), expanded targeting and measurement capabilities have led to increases in advertisers' spending on the streaming service.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media-buying/wpp-is-betting-its-future-on-getting-paid-for-outcomes/" target="_blank">WPP is betting its future on getting paid for outcomes</a></h3>
+          <p class="snippet">WPP is shifting to outcome-based remuneration as the agency holding company bets its future on AI-driven performance accountability.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media-buying/reddit-has-carved-out-an-upper-funnel-niche-for-brand-advertisers/" target="_blank">Reddit has carved out an upper funnel niche for brand advertisers</a></h3>
+          <p class="snippet">Since its 2024 stock market debut, Reddit has attracted brands looking for upper-funnel messaging. In 2026, advertisers are ramping up spend on the platform.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media-buying/future-of-marketing-briefing-the-case-for-and-against-an-agency-subscription-remuneration-model/" target="_blank">Future of Marketing Briefing: The case for and against an agency subscription remuneration model</a></h3>
+          <p class="snippet">The fight over principal media has moved on but advertisers are still catching up. S4 Capital builds subscription model for the AI age.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🤖 ForwardFuture <span class="article-count">6</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.theguardian.com/technology/2026/feb/24/feedback-loop-no-brake-how-ai-doomsday-report-rattled-markets" target="_blank">'A feedback loop with no brake': how an AI doomsday report shook US markets</a></h3>
+          <p class="snippet">Citrini Research's Substack post rattled investors by portraying a near future in which autonomous AI systems upend the entire US economy, from jobs to markets and mortgages.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://fortune.com/2026/02/24/exclusive-as-ai-threatens-search-profound-raises-96-million-to-help-brands-stay-visible/" target="_blank">Exclusive: As AI threatens search, Profound raises $96 million to help brands stay visible</a></h3>
+          <p class="snippet">Profound raised $96M to help brands maintain visibility as AI search threatens traditional discovery. Customers have dramatically improved how often their brands appear in AI-generated recommendations.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.fool.com/investing/2026/02/28/big-bottleneck-ai-chips-power-stocks-soar-crdo/" target="_blank">The biggest bottleneck in AI isn't chips anymore; it's power</a></h3>
+          <p class="snippet">AI data centers will demand enormous power in the coming years, shifting the bottleneck from chip supply to energy infrastructure.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.axios.com/2026/02/24/ai-stock-market-unemployment" target="_blank">AI offers range of possible futures for unemployment, stock market</a></h3>
+          <p class="snippet">Companies rush to replace human employees with AI tools, only to find that demand for their products evaporates just as quickly.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://fortune.com/2026/02/28/ai-scare-trade-mass-layoffs-white-collar-recession-citrini-shumer-viral-doomsday-essays/" target="_blank">The week the AI scare turned real and America realized maybe it isn't ready for what's coming</a></h3>
+          <p class="snippet">AI executive Matt Shumer's essay forcefully argued for white-collar workers to be afraid, likening the moment to February 2020 with the pandemic rapidly approaching.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.euronews.com/next/2026/02/26/ai-doomsday-new-thought-experiment-warns-of-social-and-economic-upheaval-by-2028" target="_blank">AI doomsday? New thought experiment warns of social and economic upheaval by 2028</a></h3>
+          <p class="snippet">Artificial intelligence could soon replace human labour at a scale and speed that society cannot handle, according to a new scenario that imagines life in 2028.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>⚡ AI Trends <span class="article-count">5</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://bostoninstituteofanalytics.org/blog/state-of-ai-machine-learning-feb-21-feb-27-2026-key-trends-and-growth-statistics/" target="_blank">State Of AI & Machine Learning: Trends & Stats (Feb 21-27, 2026)</a></h3>
+          <p class="snippet">Recent software updates changed the user experience from passive reasoning to active system execution. Agentic AI is now the dominant paradigm.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://opentools.ai/news" target="_blank">Latest AI News: Daily Updated Artificial Intelligence Insights (February 26, 2026)</a></h3>
+          <p class="snippet">Roundup of daily AI developments including model releases from US and Chinese labs, agent deployments, and enterprise AI adoption news.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/orchestration/anthropic-says-claude-code-transformed-programming-now-claude-cowork-is" target="_blank">Anthropic says Claude Code transformed programming. Now Claude Cowork is coming for the rest of the enterprise.</a></h3>
+          <p class="snippet">In 2025 Claude transformed how developers work, and in 2026 it will do the same for knowledge work. Spotify reports 90% reduction in engineering time with Claude-integrated system.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/orchestration/ai-agents-are-delivering-real-roi-heres-what-1-100-developers-and-ctos" target="_blank">AI Agents are delivering real ROI — Here's what 1,100 developers and CTOs reveal about scaling them</a></h3>
+          <p class="snippet">67% of organizations using agents report productivity gains. 60% of respondents say applications and agents represent the greatest long-term value in the AI stack. Yet only 10% are scaling agents in production.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://adage.com/media/media-buying-planning/aa-brand-trends-for-q2-2026/" target="_blank">Media buying trends: where brands plan to spend more in Q2 2026</a></h3>
+          <p class="snippet">Tech continues to shape media buying trends for the second quarter of 2026, with AI and CTV dominating investment priorities.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📌 VentureBeat AI <span class="article-count">5</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/orchestration/ai-agents-are-delivering-real-roi-heres-what-1-100-developers-and-ctos" target="_blank">AI Agents are delivering real ROI — Here's what 1,100 developers and CTOs reveal about scaling them</a></h3>
+          <p class="snippet">DigitalOcean's 2026 Currents research report: 67% of organizations using agents report productivity gains, but only 10% are scaling agents in production.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/orchestration/nanoclaw-solves-one-of-openclaws-biggest-security-issues-and-its-already" target="_blank">NanoClaw solves one of OpenClaw's biggest security issues — and it's already powering the creator's biz</a></h3>
+          <p class="snippet">NanoClaw, a lighter, more secure version of OpenClaw, debuted under an open source MIT License on January 31, 2026, and surpassed 7,000 GitHub stars in just over a week.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/technology/gong-launches-mission-andromeda-with-ai-sales-coaching-chatbot-and-open-mcp" target="_blank">Gong launches 'Mission Andromeda' with AI sales coaching, chatbot and open MCP connections to rivals</a></h3>
+          <p class="snippet">Mission Andromeda is Gong's answer to the basic question facing every enterprise AI vendor in 2026: Can you deliver ROI at scale?</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/orchestration/one-engineer-made-a-production-saas-product-in-an-hour-heres-the-governance" target="_blank">One engineer made a production SaaS product in an hour: here's the governance system that made it possible</a></h3>
+          <p class="snippet">Every engineering leader watching the agentic coding wave is eventually going to face the same question: how do you govern what AI builds?</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/orchestration/anthropic-says-claude-code-transformed-programming-now-claude-cowork-is" target="_blank">Anthropic says Claude Code transformed programming. Now Claude Cowork is coming for the rest of the enterprise.</a></h3>
+          <p class="snippet">In 2026 Claude will do for knowledge work what Claude Code did for development. Spotify reports 90% reduction in engineering time with 650+ AI-generated code changes per month.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🐦 X Trends <span class="article-count">8</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://x.com/patelnamra573/status/2028103431273976067" target="_blank">February was insane for AI — lot of models dropped in one month</a></h3>
+          <p class="snippet">Feb was insane for AI. US Labs: Opus 4.6, GPT-5.3-Codex, Sonnet 4.6, Grok 4.20 Beta, Gemini 3.1 Pro, Nano Banana 2, Lyria 3. Chinese Labs: Seed 2, GLM-5, MiniMax M2.5, Qwen 3.5, Kling 3.0 Video+Omni, Seedream 5.0, Seedance 2.0</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/statsare98/status/2027475152380842438" target="_blank">AI model race goes genuinely global — Chinese model with 744B parameters costs 136x less</a></h3>
+          <p class="snippet">Seven major AI models dropped in one month. One from China has 744 billion parameters, costs 136 times less, and is open source. The race is no longer America versus itself. It just got genuinely global.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/Awesome_AI_News/status/2026546840989249991" target="_blank">Alibaba releases Qwen3.5 open-source models excelling in agent tasks</a></h3>
+          <p class="snippet">Tongyi Qianwen team released new open-source models Qwen3.5-122B-A10B & Qwen3.5-35B-A3B. New models excel in complex agent tasks, narrowing gap with top closed-source models.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/HuggingPapers/status/2025301397223190565" target="_blank">Nanbeige4.1-3B: 3B model outperforms 30B+ across code, reasoning, and alignment</a></h3>
+          <p class="snippet">A 3B parameter SLM that outperforms 30B+ models across code, reasoning, and alignment. First open-source model to unify agentic behavior, code generation, and general reasoning — executing up to 600 tool-call turns.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/MarTech_Awards/status/2026771738135060578" target="_blank">Google tells advertisers to dump granular campaigns for AI</a></h3>
+          <p class="snippet">Google Tells Advertisers to Dump Granular Campaigns for AI — pushing brands toward full AI-managed campaign structures.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/MarketingNewsCA/status/2027322863384961374" target="_blank">YouTube loosens monetization rules for sensitive topics</a></h3>
+          <p class="snippet">YouTube is loosening its monetization rules. Creators can now earn full ad revenue on certain sensitive topics if presented in a non-graphic, contextual way.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/maddbai/status/2026628257299173767" target="_blank">AI transforming TV advertising — MNTN CEO on AI for Super Bowl and first-time advertisers</a></h3>
+          <p class="snippet">AI is transforming TV advertising. AdAge features MNTN's CEO Mark Douglas on how AI is becoming indispensable, from Super Bowl ads to first-time advertisers.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://x.com/NewsX/status/2027798452395188645" target="_blank">AdCounty Media's Vision for AI Powered Advertising</a></h3>
+          <p class="snippet">Rewriting the Rules: AdCounty Media's Vision for AI Powered Advertising — how the industry is restructuring around AI-first campaign execution.</p>
+        </div>
+      
+        </section>
+      
+    
+    <footer>
+      Curated by Locke for Ross • <a href="https://e-837.github.io/daily-briefing/">Archive</a>
+    </footer>
+  </div>
+</body>
+</html>
