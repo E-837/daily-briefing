@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ross' Daily AI & Ad Tech Briefing - Thursday, March 19, 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header {
+      border-bottom: 3px solid #1E40AF;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #1E40AF;
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+    .date {
+      color: #666;
+      font-size: 0.95em;
+    }
+    
+    /* So What For You */
+    .so-what {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 22px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      border-left: 4px solid #F59E0B;
+    }
+    .so-what h2 {
+      color: #F59E0B;
+      border: none;
+      margin-bottom: 4px;
+      font-size: 1.2em;
+    }
+    .so-what-subtitle {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8em;
+      margin-bottom: 14px;
+    }
+    .so-what-points {
+      list-style: none;
+      font-size: 0.92em;
+      line-height: 1.7;
+    }
+    .so-what-points li {
+      margin-bottom: 10px;
+      padding-left: 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 10px;
+    }
+    .so-what-points li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .so-what-points strong {
+      color: #F59E0B;
+    }
+
+    /* Executive Summary */
+    .executive-summary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .executive-summary h2 {
+      color: white;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .summary-points {
+      list-style: none;
+      font-size: 0.95em;
+    }
+    .summary-points li {
+      margin-bottom: 8px;
+      padding-left: 5px;
+    }
+    
+    /* Trending Entities */
+    .trending-entities {
+      background: #FEF3C7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .trending-entities h2 {
+      color: #92400E;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .entity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .entity-tag {
+      background: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .entity-tag .count {
+      background: #F59E0B;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.85em;
+      margin-left: 5px;
+    }
+    
+    /* Day Comparison */
+    .day-comparison {
+      background: #EFF6FF;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .day-comparison h2 {
+      color: #1E3A8A;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .comparison-group {
+      margin-bottom: 15px;
+    }
+    .comparison-group:last-child {
+      margin-bottom: 0;
+    }
+    .comparison-group h3 {
+      font-size: 1em;
+      margin-bottom: 10px;
+      color: #1E3A8A;
+    }
+    .topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topic-pill {
+      background: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .topic-pill.new {
+      border-left: 3px solid #10B981;
+    }
+    .topic-pill.continuing {
+      border-left: 3px solid #6366F1;
+    }
+    
+    /* Source Sections */
+    .source-section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #1E40AF;
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-count {
+      background: #E5E7EB;
+      color: #666;
+      font-size: 0.65em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+    
+    /* Articles */
+    .article {
+      margin-bottom: 20px;
+      padding-left: 15px;
+      border-left: 3px solid #F59E0B;
+      position: relative;
+    }
+    .article.priority {
+      border-left-color: #DC2626;
+      background: #FEF2F2;
+      padding: 15px;
+      padding-left: 15px;
+      border-radius: 4px;
+    }
+    .priority-badge {
+      display: inline-block;
+      background: #DC2626;
+      color: white;
+      font-size: 0.75em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .article h3 {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
+    .article a {
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article a:hover {
+      color: #1E40AF;
+    }
+    .snippet {
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #E5E7EB;
+      text-align: center;
+      color: #666;
+      font-size: 0.85em;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .entity-tags, .topic-pills {
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🗝️ Ross' Daily AI & Ad Tech Briefing</h1>
+      <p class="date">Thursday, March 19, 2026</p>
+    </header>
+    
+    
+    <section class="so-what">
+      <h2>🎯 So What For You</h2>
+      <p class="so-what-subtitle">Filtered through your lens: AI Manager, digital media org</p>
+      <ul class="so-what-points">
+        <li>📊 <strong>Leadership data point:</strong> Massive AI Breakthroughs Forecasted for 2026 in Fortune Report — useful stat for your next AI adoption conversation internally.</li><li>📰 <strong>Media org watch:</strong> "With NewPress, Iz and Johnny Harris incubate video journalism for the creator era" — directly relevant to how AI is reshaping the media side of your industry.</li><li>⚙️ <strong>Programmatic shift:</strong> "The Memo Heard Round The World; The Limits Of Unlimited ChatGPT" — operational relevance for your digital media buying/planning work.</li><li>🤖 <strong>AI tooling update:</strong> "The Memo Heard Round The World; The Limits Of Unlimited ChatGPT" — potential relevance to your team's AI toolkit or vendor evaluations.</li>
+      </ul>
+    </section>
+  
+    
+    <section class="executive-summary">
+      <h2>📋 Executive Summary</h2>
+      <ul class="summary-points">
+        <li>🔥 Trending: AI (14), X (4), OpenAI (1)</li><li>📰 16 articles across 7 sources</li>
+      </ul>
+    </section>
+  
+    
+    <section class="trending-entities">
+      <h2>🔥 Trending Today</h2>
+      <div class="entity-tags">
+        
+          <span class="entity-tag">AI <span class="count">14</span></span>
+        
+          <span class="entity-tag">X <span class="count">4</span></span>
+        
+          <span class="entity-tag">OpenAI <span class="count">1</span></span>
+        
+          <span class="entity-tag">ChatGPT <span class="count">1</span></span>
+        
+          <span class="entity-tag">GPT <span class="count">1</span></span>
+        
+          <span class="entity-tag">Netflix <span class="count">1</span></span>
+        
+          <span class="entity-tag">Google <span class="count">1</span></span>
+        
+      </div>
+    </section>
+  
+    
+    
+        <section class="source-section">
+          <h2>📊 AdExchanger <span class="article-count">2</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/" target="_blank">AI agents are moving fast, but MadConnect says ad tech's slow, messy plumbing still needs an overhaul before agentic marketing can really work</a></h3>
+          <p class="snippet">AI agents are moving fast, but MadConnect says ad tech's slow, messy plumbing still needs an overhaul before agentic marketing can really work.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/daily-news-roundup/wednesday-18032026/" target="_blank">The Memo Heard Round The World; The Limits Of Unlimited ChatGPT</a></h3>
+          <p class="snippet">Encyclopedia Britannica and Merriam-Webster are suing OpenAI. Advertisers will soon be able to buy Reddit ads through retail media platform Pacvue.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📰 Digiday <span class="article-count">1</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/future-of-tv/future-of-tv-briefing-how-netflix-is-shaking-up-the-upfront-deal-model/" target="_blank">Future of TV Briefing: How Netflix is shaking up the upfront deal model</a></h3>
+          <p class="snippet">As Netflix has been bringing these deals to more advertisers, it has been focusing on those brands that placed early bets on the streaming service's nascent advertising business. But it's not necessarily giving those advertisers a friends-and-family discount.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>⚡ AI Trends <span class="article-count">10</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.ibm.com/think/news/ai-tech-trends-predictions-2026" target="_blank">The trends that will shape AI and tech in 2026</a></h3>
+          <p class="snippet">Robotics and physical AI are definitely going to pick up. While large language models remain dominant, the industry is hitting diminishing returns from scaling. GPUs will remain king, but ASIC-based accelerators, chiplet designs, analog inference and even quantum-assisted optimizers will mature.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://sakab4ever.com/blog/the-6-million-threat-how-deepseeks-new-model-is-bankrupting-the-scaling-laws" target="_blank">The $6 Million Threat: How DeepSeek's New Model is Bankrupting the Scaling Laws</a></h3>
+          <p class="snippet">Hunter Alpha describes itself as a Chinese AI model and demonstrates a profound mastery of long-horizon agentic workflows, a key signature of the rumored DeepSeek-V4 architecture.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.aiandnews.com/blog/latest-ai-news-march-2026-2/" target="_blank">Exciting Developments in AI for March 2026</a></h3>
+          <p class="snippet">Machine learning algorithms are being used for fraud detection, risk assessment, and customer service enhancements. Financial institutions using AI stand to gain significant advantages in efficiency.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.digidir.com/google-maps-ai-update-ask-maps-and-3d-immersive-navigation/" target="_blank">Google Maps AI Update 2026: Ask Maps & Immersive 3D Navigation</a></h3>
+          <p class="snippet">The emerging landscape of digital marketing is changing very fast with the evolution of artificial intelligence and machine learning.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.techaimag.com/ai-agents/ai-agents-revolutionizing-e-commerce-hyper-personalization-automation" target="_blank">AI Agents Revolutionizing E-Commerce</a></h3>
+          <p class="snippet">AI agents intensify personalization to unprecedented levels—effectively enabling AI-powered hyper-personalization. This article takes a comprehensive look at how AI agents operate and their impact on e-commerce.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.reuters.com/business/" target="_blank">Mystery AI model suspected to be DeepSeek V4 is revealed to be from Xiaomi</a></h3>
+          <p class="snippet">Mystery AI model suspected to be DeepSeek V4 is revealed to be from Xiaomi. Musk says SpaceX AI, Tesla will keep ordering Nvidia chips at scale.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.cnet.com/news-live/nvidia-gtc-2026-live-blog-updates/" target="_blank">Nvidia GTC: Day 3 of AI Agent News, Disney Robots and More</a></h3>
+          <p class="snippet">While much of GTC has been focused on AI agents and chips, MotorTrend presented Jensen Huang with its 2026 Person of the Year award during a Q&A session.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.theguardian.com/us-news/ng-interactive/2026/mar/15/ai-defense-warfare-companies" target="_blank">These aren't AI firms, they're defense contractors</a></h3>
+          <p class="snippet">Pete Hegseth's AI strategy, issued in January 2026, frames the question entirely as a race, directing the Pentagon to move at wartime speed, with AI as the first proving ground.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.pymnts.com/artificial-intelligence-2/2026/alibaba-joins-other-tech-giants-in-raising-ai-prices/" target="_blank">Alibaba Joins Other Tech Giants in Raising AI Prices</a></h3>
+          <p class="snippet">ATH takes its name from the tokens generated by AI models. ATH is built around a single organizing mission: create tokens, deliver tokens and apply tokens.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://radicaldatascience.wordpress.com/2026/03/18/ai-news-briefs-bulletin-board-for-march-2026/" target="_blank">AI News Briefs Bulletin Board for March 2026</a></h3>
+          <p class="snippet">Competition Launch: NVIDIA Nemotron Model Reasoning Challenge – Reasoning benchmarks help the AI community measure progress on structured tasks.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🔬 Nieman Lab <span class="article-count">1</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.niemanlab.org/2026/03/with-newpress-iz-and-johnny-harris-incubate-video-journalism-for-the-creator-era/" target="_blank">With NewPress, Iz and Johnny Harris incubate video journalism for the creator era</a></h3>
+          <p class="snippet">Read the full analysis at Nieman Lab.</p>
+        </div>
+      
+        </section>
+      
+    
+    <footer>
+      Curated by Locke for Ross • <a href="https://e-837.github.io/daily-briefing/">Archive</a>
+    </footer>
+  </div>
+</body>
+</html>
