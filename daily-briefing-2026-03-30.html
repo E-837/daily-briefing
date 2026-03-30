@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ross' Daily AI & Ad Tech Briefing - Monday, March 30, 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header {
+      border-bottom: 3px solid #1E40AF;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #1E40AF;
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+    .date {
+      color: #666;
+      font-size: 0.95em;
+    }
+    
+    /* So What For You */
+    .so-what {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 22px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      border-left: 4px solid #F59E0B;
+    }
+    .so-what h2 {
+      color: #F59E0B;
+      border: none;
+      margin-bottom: 4px;
+      font-size: 1.2em;
+    }
+    .so-what-subtitle {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8em;
+      margin-bottom: 14px;
+    }
+    .so-what-points {
+      list-style: none;
+      font-size: 0.92em;
+      line-height: 1.7;
+    }
+    .so-what-points li {
+      margin-bottom: 10px;
+      padding-left: 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 10px;
+    }
+    .so-what-points li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .so-what-points strong {
+      color: #F59E0B;
+    }
+
+    /* Executive Summary */
+    .executive-summary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .executive-summary h2 {
+      color: white;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .summary-points {
+      list-style: none;
+      font-size: 0.95em;
+    }
+    .summary-points li {
+      margin-bottom: 8px;
+      padding-left: 5px;
+    }
+    
+    /* Trending Entities */
+    .trending-entities {
+      background: #FEF3C7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .trending-entities h2 {
+      color: #92400E;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .entity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .entity-tag {
+      background: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .entity-tag .count {
+      background: #F59E0B;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.85em;
+      margin-left: 5px;
+    }
+    
+    /* Day Comparison */
+    .day-comparison {
+      background: #EFF6FF;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .day-comparison h2 {
+      color: #1E3A8A;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .comparison-group {
+      margin-bottom: 15px;
+    }
+    .comparison-group:last-child {
+      margin-bottom: 0;
+    }
+    .comparison-group h3 {
+      font-size: 1em;
+      margin-bottom: 10px;
+      color: #1E3A8A;
+    }
+    .topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topic-pill {
+      background: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .topic-pill.new {
+      border-left: 3px solid #10B981;
+    }
+    .topic-pill.continuing {
+      border-left: 3px solid #6366F1;
+    }
+    
+    /* Source Sections */
+    .source-section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #1E40AF;
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-count {
+      background: #E5E7EB;
+      color: #666;
+      font-size: 0.65em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+    
+    /* Articles */
+    .article {
+      margin-bottom: 20px;
+      padding-left: 15px;
+      border-left: 3px solid #F59E0B;
+      position: relative;
+    }
+    .article.priority {
+      border-left-color: #DC2626;
+      background: #FEF2F2;
+      padding: 15px;
+      padding-left: 15px;
+      border-radius: 4px;
+    }
+    .priority-badge {
+      display: inline-block;
+      background: #DC2626;
+      color: white;
+      font-size: 0.75em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .article h3 {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
+    .article a {
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article a:hover {
+      color: #1E40AF;
+    }
+    .snippet {
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #E5E7EB;
+      text-align: center;
+      color: #666;
+      font-size: 0.85em;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .entity-tags, .topic-pills {
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🗝️ Ross' Daily AI & Ad Tech Briefing</h1>
+      <p class="date">Monday, March 30, 2026</p>
+    </header>
+    
+    
+    <section class="so-what">
+      <h2>🎯 So What For You</h2>
+      <p class="so-what-subtitle">Filtered through your lens: AI Manager, digital media org</p>
+      <ul class="so-what-points">
+        <li>📊 <strong>Leadership data point:</strong> AI Media Is Already Here. Here's What Marketers Need to Know — useful stat for your next AI adoption conversation internally.</li><li>🏢 <strong>Agency angle:</strong> "The New Data Buyer In Town; The Old Agency Buyer Of AI" — worth tracking if your org works with agency partners or monitors holding company AI moves.</li><li>📰 <strong>Media org watch:</strong> "Yahoo Says Its AI Isn't Bad For Publishers; Movie Clippers Go Viral For Ad Bucks" — directly relevant to how AI is reshaping the media side of your industry.</li><li>⚙️ <strong>Programmatic shift:</strong> "Future of Marketing Briefing: A cynic's guide to the most transparent dispute in programmatic history" — operational relevance for your digital media buying/planning work.</li>
+      </ul>
+    </section>
+  
+    
+    <section class="executive-summary">
+      <h2>📋 Executive Summary</h2>
+      <ul class="summary-points">
+        <li>🔥 Trending: AI (33), X (7), Google (3)</li><li>📰 43 articles across 8 sources</li>
+      </ul>
+    </section>
+  
+    
+    <section class="trending-entities">
+      <h2>🔥 Trending Today</h2>
+      <div class="entity-tags">
+        
+          <span class="entity-tag">AI <span class="count">33</span></span>
+        
+          <span class="entity-tag">X <span class="count">7</span></span>
+        
+          <span class="entity-tag">Google <span class="count">3</span></span>
+        
+          <span class="entity-tag">Apple <span class="count">2</span></span>
+        
+          <span class="entity-tag">Anthropic <span class="count">2</span></span>
+        
+          <span class="entity-tag">TikTok <span class="count">1</span></span>
+        
+          <span class="entity-tag">programmatic <span class="count">1</span></span>
+        
+          <span class="entity-tag">Amazon <span class="count">1</span></span>
+        
+      </div>
+    </section>
+  
+    
+    <section class="day-comparison">
+      <h2>📅 New vs Continuing</h2>
+      
+        <div class="comparison-group">
+          <h3>🆕 New Topics Today</h3>
+          <div class="topic-pills">
+            <span class="topic-pill new">googles antitrust</span><span class="topic-pill new">antitrust teflon</span><span class="topic-pill new">adroll retargeting</span><span class="topic-pill new">retargeting display</span><span class="topic-pill new">display prospecting</span><span class="topic-pill new">prospecting quietly</span>
+          </div>
+        </div>
+      
+      
+        <div class="comparison-group">
+          <h3>🔄 Continuing Stories</h3>
+          <div class="topic-pills">
+            <span class="topic-pill continuing">changing</span><span class="topic-pill continuing">latest</span>
+          </div>
+        </div>
+      
+    </section>
+  
+    
+        <section class="source-section">
+          <h2>📊 AdExchanger <span class="article-count">6</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/daily-news-roundup/wednesday-25032026/" target="_blank">The 'C' In CTV Is For Cart; Held To Account</a></h3>
+          <p class="snippet">Full article on AdExchanger (may require subscription).</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/daily-news-roundup/thursday-26032026/" target="_blank">Yahoo Says Its AI Isn't Bad For Publishers; Movie Clippers Go Viral For Ad Bucks</a></h3>
+          <p class="snippet">Full article on AdExchanger (may require subscription).</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/the-big-story/ad-techs-off-broadway-debut/" target="_blank">Ad Tech's Off-Broadway Debut</a></h3>
+          <p class="snippet">Full article on AdExchanger (may require subscription).</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/daily-news-roundup/tuesday-24032026/" target="_blank">Google's Antitrust Teflon; Apple Goes For Map Ads</a></h3>
+          <p class="snippet">Full article on AdExchanger (may require subscription).</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/daily-news-roundup/monday-23032026/" target="_blank">The New Data Buyer In Town; The Old Agency Buyer Of AI</a></h3>
+          <p class="snippet">Full article on AdExchanger (may require subscription).</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/data-driven-thinking/ai-media-is-already-here-heres-what-marketers-need-to-know/" target="_blank">AI Media Is Already Here. Here's What Marketers Need to Know</a></h3>
+          <p class="snippet">Full article on AdExchanger (may require subscription).</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📰 Digiday <span class="article-count">9</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media-buying/ad-tech-briefing-iab-tech-lab-accelerates-push-to-make-agentic-ai-more-practical/" target="_blank">Ad Tech Briefing: IAB Tech Lab accelerates push to make agentic AI more practical</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/marketing/tiktok-rebrands-its-advertiser-pitch-around-full-funnel-ambition/" target="_blank">TikTok rebrands its advertiser pitch around full-funnel ambition</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/marketing/what-ai-disruption-means-for-experimental-ad-budgets/" target="_blank">What AI disruption means for experimental ad budgets</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media-buying/future-of-marketing-briefing-a-cynics-guide-to-the-most-transparent-dispute-in-programmatic-history/" target="_blank">Future of Marketing Briefing: A cynic's guide to the most transparent dispute in programmatic history</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/marketing/ai-influencer-discovery-tools-are-changing-how-agencies-cast-creators/" target="_blank">AI influencer discovery tools are changing how agencies cast creators</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/marketing/philadelphia-cream-cheese-pulls-dollars-from-search-people-arent-googling-cream-cheese/" target="_blank">Philadelphia Cream Cheese pulls dollars from search – people aren't Googling 'cream cheese'</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media/news-media-alliance-signs-ai-licensing-deal-to-unlock-recurring-rag-revenue-for-small-and-mid-sized-publishers/" target="_blank">News/Media Alliance signs AI licensing deal to unlock recurring RAG revenue for small and mid-sized publishers</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media/media-briefing-overheard-at-the-digiday-publishing-summit-march-2026-edition/" target="_blank">Media Briefing: Overheard at the Digiday Publishing Summit, March 2026 edition</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media/inside-the-daily-mails-creator-led-content-playbook/" target="_blank">Inside The Daily Mail's creator-led content playbook</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>⚡ AI Trends <span class="article-count">7</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">Latest AI News and AI Breakthroughs that Matter Most: 2026</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.buildez.ai/blog/ai-trending-march-2026-developments" target="_blank">AI Trending March 2026: Key Developments & Market Stats</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.forbes.com/topics/agentic-ai/" target="_blank">Latest Agentic AI News Today</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.reuters.com/technology/artificial-intelligence/" target="_blank">Reuters AI News: Apple hires ex-Google executive to head AI marketing</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.forbes.com/ai/" target="_blank">HP Imagine 2026: AI-driven WXP automation and HP IQ</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.stocktitan.net/news/ai.html" target="_blank">NamiBox Expands into AI Educational Companion Devices</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.openpr.com/news/4446383/united-states-agentic-ai-market-2026-growth-drivers-trends" target="_blank">United States Agentic AI Market 2026 Growth Report</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📌 VentureBeat AI <span class="article-count">3</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/orchestration/the-consequential-ai-work-that-actually-moves-the-needle-for-enterprises" target="_blank">The consequential AI work that actually moves the needle for enterprises</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.fool.com/investing/2026/03/24/prediction-the-next-phase-of-artificial-intelligen/" target="_blank">Prediction: The Next Phase of AI Won't Be About Chips</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/" target="_blank">Scientists Discover AI Can Make Humans More Creative</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🤖 ForwardFuture <span class="article-count">10</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/anthropic-ipo-google-s-agent-smith-surge-ai-risks-rise" target="_blank">Anthropic IPO, Google's Agent Smith Surge, & AI Risks Rise</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/china-s-ai-talent-surge-amazon-s-200b-bet-capcut-ai-video" target="_blank">China’s AI Talent Surge, Amazon’s $200B Bet, & CapCut AI Video</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/openai-reset-ai-trust-gap-data-center-crackdown" target="_blank">OpenAI Reset, AI Trust Gap, & Data Center Crackdown</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/ai-landslide-prediction-multi-agent-coding-moon-base-push" target="_blank">AI Landslide Prediction, Multi-Agent Coding, & Moon Base Push</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/china-s-open-ai-surge-world-models-rise-luma-s-uni-1-launch" target="_blank">China’s Open AI Surge, World Models Rise, & Luma's Uni-1 Launch</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/autonomous-ai-enterprise-push-trump-s-ai-rules" target="_blank">Autonomous AI, Enterprise Push, & Trump’s AI Rules</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/china-s-robot-boom-ai-manipulation-risks-uber-robotaxis" target="_blank">China’s Robot Boom, AI Manipulation Risks, & Uber Robotaxis</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/nvidia-groq-deal-anthropic-s-rise-midjourney-v8-launch" target="_blank">NVIDIA-Groq Deal, Anthropic’s Rise, & Midjourney V8 Launch</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/your-first-ai-agent-a-practical-guide-to-openclaw" target="_blank">Your First AI Agent: A Practical Guide to OpenClaw</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/ai-restructuring-outsourcing-disruption-space-ai-push" target="_blank">AI Restructuring, Outsourcing Disruption, & Space AI Push</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>💻 TechCrunch AI <span class="article-count">6</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://techcrunch.com/2026/03/30/mantis-biotech-is-making-digital-twins-of-humans-to-help-solve-medicines-data-availability-problem/" target="_blank">Mantis Biotech is making ‘digital twins’ of humans to help solve medicine’s data availability problem</a></h3>
+          <p class="snippet">Read the full article on TechCrunch.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://techcrunch.com/2026/03/30/scaleops-130m-series-c-kubernetes-efficiency-ai-demand-funding/" target="_blank">ScaleOps raises $130M to improve computing efficiency amid AI demand</a></h3>
+          <p class="snippet">Read the full article on TechCrunch.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://techcrunch.com/2026/03/30/ai-chip-startup-rebellions-raises-400-million-at-2-3b-valuation-in-pre-ipo-round/" target="_blank">AI chip startup Rebellions raises $400 million at $2.3B valuation in pre-IPO round</a></h3>
+          <p class="snippet">Read the full article on TechCrunch.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://techcrunch.com/2026/03/30/qodo-bets-on-code-verification-as-ai-coding-scales-raises-70m/" target="_blank">Qodo raises $70M for code verification as AI coding scales</a></h3>
+          <p class="snippet">Read the full article on TechCrunch.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://techcrunch.com/2026/03/30/starcloud-raises-170-million-series-ato-build-data-centers-in-space/" target="_blank">Starcloud raises $170 million Series A to build data centers in space</a></h3>
+          <p class="snippet">Read the full article on TechCrunch.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://techcrunch.com/2026/03/29/soras-shutdown-could-be-a-reality-check-moment-for-ai-video/" target="_blank">Sora’s shutdown could be a reality check moment for AI video</a></h3>
+          <p class="snippet">Read the full article on TechCrunch.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🔬 Wired AI <span class="article-count">1</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.wired.com/story/documents-reveal-palantir-irs-contract-fraud-clean-energy-credits/" target="_blank">The IRS Wants Smarter Audits. Palantir Could Help Decide Who Gets Flagged</a></h3>
+          <p class="snippet">Documents show the tax agency is testing a Palantir tool to surface “highest-value” audit and investigation targets from a maze of legacy systems.</p>
+        </div>
+      
+        </section>
+      
+    
+    <footer>
+      Curated by Locke for Ross • <a href="https://e-837.github.io/daily-briefing/">Archive</a>
+    </footer>
+  </div>
+</body>
+</html>
