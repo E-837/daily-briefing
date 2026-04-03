@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ross' Daily AI & Ad Tech Briefing - Thursday, April 2, 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header {
+      border-bottom: 3px solid #1E40AF;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #1E40AF;
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+    .date {
+      color: #666;
+      font-size: 0.95em;
+    }
+    
+    /* So What For You */
+    .so-what {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 22px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      border-left: 4px solid #F59E0B;
+    }
+    .so-what h2 {
+      color: #F59E0B;
+      border: none;
+      margin-bottom: 4px;
+      font-size: 1.2em;
+    }
+    .so-what-subtitle {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8em;
+      margin-bottom: 14px;
+    }
+    .so-what-points {
+      list-style: none;
+      font-size: 0.92em;
+      line-height: 1.7;
+    }
+    .so-what-points li {
+      margin-bottom: 10px;
+      padding-left: 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 10px;
+    }
+    .so-what-points li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .so-what-points strong {
+      color: #F59E0B;
+    }
+
+    /* Executive Summary */
+    .executive-summary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .executive-summary h2 {
+      color: white;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .summary-points {
+      list-style: none;
+      font-size: 0.95em;
+    }
+    .summary-points li {
+      margin-bottom: 8px;
+      padding-left: 5px;
+    }
+    
+    /* Trending Entities */
+    .trending-entities {
+      background: #FEF3C7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .trending-entities h2 {
+      color: #92400E;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .entity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .entity-tag {
+      background: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      color: #1a1a1a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .entity-tag .count {
+      background: #F59E0B;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.85em;
+      margin-left: 5px;
+    }
+    
+    /* Day Comparison */
+    .day-comparison {
+      background: #EFF6FF;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .day-comparison h2 {
+      color: #1E3A8A;
+      border: none;
+      margin-bottom: 15px;
+    }
+    .comparison-group {
+      margin-bottom: 15px;
+    }
+    .comparison-group:last-child {
+      margin-bottom: 0;
+    }
+    .comparison-group h3 {
+      font-size: 1em;
+      margin-bottom: 10px;
+      color: #1E3A8A;
+    }
+    .topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topic-pill {
+      background: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .topic-pill.new {
+      border-left: 3px solid #10B981;
+    }
+    .topic-pill.continuing {
+      border-left: 3px solid #6366F1;
+    }
+    
+    /* Source Sections */
+    .source-section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #1E40AF;
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-count {
+      background: #E5E7EB;
+      color: #666;
+      font-size: 0.65em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+    
+    /* Articles */
+    .article {
+      margin-bottom: 20px;
+      padding-left: 15px;
+      border-left: 3px solid #F59E0B;
+      position: relative;
+    }
+    .article.priority {
+      border-left-color: #DC2626;
+      background: #FEF2F2;
+      padding: 15px;
+      padding-left: 15px;
+      border-radius: 4px;
+    }
+    .priority-badge {
+      display: inline-block;
+      background: #DC2626;
+      color: white;
+      font-size: 0.75em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .article h3 {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
+    .article a {
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .article a:hover {
+      color: #1E40AF;
+    }
+    .snippet {
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #E5E7EB;
+      text-align: center;
+      color: #666;
+      font-size: 0.85em;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      .entity-tags, .topic-pills {
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🗝️ Ross' Daily AI & Ad Tech Briefing</h1>
+      <p class="date">Thursday, April 2, 2026</p>
+    </header>
+    
+    
+    <section class="so-what">
+      <h2>🎯 So What For You</h2>
+      <p class="so-what-subtitle">Filtered through your lens: AI Manager, digital media org</p>
+      <ul class="so-what-points">
+        <li>📊 <strong>Leadership data point:</strong> New report reveals the true danger of AI, and it's not what you think — useful stat for your next AI adoption conversation internally.</li><li>⚙️ <strong>Programmatic shift:</strong> "The Agentic Marketplace Is Here. Where Does That Leave DSPs and SSPs?" — operational relevance for your digital media buying/planning work.</li><li>🤖 <strong>AI tooling update:</strong> "China’s Open AI Surge, World Models Rise, & Luma's Uni-1 Launch" — potential relevance to your team's AI toolkit or vendor evaluations.</li><li>📺 <strong>CTV/Video signal:</strong> "China’s AI Talent Surge, Amazon’s $200B Bet, & CapCut AI Video" — relevant if your media mix includes video/streaming buys.</li>
+      </ul>
+    </section>
+  
+    
+    <section class="executive-summary">
+      <h2>📋 Executive Summary</h2>
+      <ul class="summary-points">
+        <li>🔥 Trending: AI (26), X (4), OpenAI (4)</li><li>📰 35 articles across 8 sources</li>
+      </ul>
+    </section>
+  
+    
+    <section class="trending-entities">
+      <h2>🔥 Trending Today</h2>
+      <div class="entity-tags">
+        
+          <span class="entity-tag">AI <span class="count">26</span></span>
+        
+          <span class="entity-tag">X <span class="count">4</span></span>
+        
+          <span class="entity-tag">OpenAI <span class="count">4</span></span>
+        
+          <span class="entity-tag">Claude <span class="count">3</span></span>
+        
+          <span class="entity-tag">Google <span class="count">3</span></span>
+        
+          <span class="entity-tag">Anthropic <span class="count">3</span></span>
+        
+          <span class="entity-tag">Amazon <span class="count">2</span></span>
+        
+          <span class="entity-tag">DSP <span class="count">1</span></span>
+        
+      </div>
+    </section>
+  
+    
+    <section class="day-comparison">
+      <h2>📅 New vs Continuing</h2>
+      
+        <div class="comparison-group">
+          <h3>🆕 New Topics Today</h3>
+          <div class="topic-pills">
+            <span class="topic-pill new">startup explosion</span><span class="topic-pill new">artemis openrouters</span><span class="topic-pill new">openrouters breakthrough</span><span class="topic-pill new">openai killed</span><span class="topic-pill new">killed californias</span><span class="topic-pill new">californias europes</span>
+          </div>
+        </div>
+      
+      
+        <div class="comparison-group">
+          <h3>🔄 Continuing Stories</h3>
+          <div class="topic-pills">
+            <span class="topic-pill continuing">agentic marketplace</span><span class="topic-pill continuing">pruning mediavine</span><span class="topic-pill continuing">mediavine shoppers</span><span class="topic-pill continuing">shoppers clicking</span><span class="topic-pill continuing">clicking amazons</span><span class="topic-pill continuing">adexchanger datadriven</span>
+          </div>
+        </div>
+      
+    </section>
+  
+    
+        <section class="source-section">
+          <h2>📊 AdExchanger <span class="article-count">3</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/ai/the-agentic-marketplace-is-here-where-does-that-leave-dsps-and-ssps/" target="_blank">The Agentic Marketplace Is Here. Where Does That Leave DSPs and SSPs?</a></h3>
+          <p class="snippet">Full article on AdExchanger (may require subscription).</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/daily-news-roundup/thursday-02042026/" target="_blank">Pruning The Mediavine; Shoppers Aren't Clicking Amazon's AI Ads</a></h3>
+          <p class="snippet">Full article on AdExchanger (may require subscription).</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.adexchanger.com/" target="_blank">AdExchanger | News and Views on Data-Driven Digital Advertising</a></h3>
+          <p class="snippet">Full article on AdExchanger (may require subscription).</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📰 Digiday <span class="article-count">2</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/media-buying/spotifys-ad-exchange-grew-its-programmatic-ad-base-but-buyers-want-more/" target="_blank">Spotify's ad exchange grew its programmatic ad base, but buyers want more</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://digiday.com/sponsored/how-purchase-data-is-redefining-tv-ad-performance-and-driving-revenue/" target="_blank">How purchase data is redefining TV ad performance and driving revenue</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>⚡ AI Trends <span class="article-count">8</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">Latest AI News and AI Breakthroughs that Matter Most: 2026</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.reuters.com/technology/artificial-intelligence/" target="_blank">Reuters AI News | Latest Headlines and Developments</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.artificialintelligence-news.com/" target="_blank">AI News | Latest News | Insights Powering AI-Driven Business Growth</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://lamarr-institute.org/news/ai-workshop/" target="_blank">How AI Increasingly Integrates into Work Processes</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.forbes.com/topics/agentic-ai/" target="_blank">Latest Agentic AI News Today | Trends, Predictions, & Analysis</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.nytimes.com/spotlight/artificial-intelligence" target="_blank">Artificial Intelligence - The New York Times</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.masslive.com/news/2026/04/new-report-reveals-the-true-danger-of-ai-and-its-not-what-you-think.html" target="_blank">New report reveals the true danger of AI, and it's not what you think</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.dubaichronicle.com/2026/04/02/ai-in-dubai-business-transformation/" target="_blank">AI in Dubai: How Artificial Intelligence Is Transforming Business</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>📌 VentureBeat AI <span class="article-count">1</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://venturebeat.com/security/claude-code-512000-line-source-leak-attack-paths-audit-security-leaders" target="_blank">512,000 lines of leaked AI agent source code, three mapped attack paths, and the audit security leaders need now</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🤖 ForwardFuture <span class="article-count">10</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/ai-startup-explosion-tech-job-cuts-gemma-4-launch" target="_blank">AI Startup Explosion, Tech Job Cuts, & Gemma 4 Launch</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/artemis-ii-launch-openrouter-s-1-3b-rise-1-bit-ai-breakthrough" target="_blank">Artemis II Launch, OpenRouter's $1.3B Rise, & 1-Bit AI Breakthrough</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/why-openai-killed-sora-california-s-ai-rules-europe-s-ai-boom" target="_blank">Why OpenAI Killed Sora, California's AI Rules, & Europe's AI Boom</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/robots-build-solar-ceos-continue-to-blame-ai-for-layoffs-claude-takes-control" target="_blank">Robots Build Solar, CEOs Continue to Blame AI for Layoffs, Claude Takes Control</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/anthropic-ipo-google-s-agent-smith-surge-ai-risks-rise" target="_blank">Anthropic IPO, Google's Agent Smith Surge, & AI Risks Rise</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/china-s-ai-talent-surge-amazon-s-200b-bet-capcut-ai-video" target="_blank">China’s AI Talent Surge, Amazon’s $200B Bet, & CapCut AI Video</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/openai-reset-ai-trust-gap-data-center-crackdown" target="_blank">OpenAI Reset, AI Trust Gap, & Data Center Crackdown</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/ai-landslide-prediction-multi-agent-coding-moon-base-push" target="_blank">AI Landslide Prediction, Multi-Agent Coding, & Moon Base Push</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/china-s-open-ai-surge-world-models-rise-luma-s-uni-1-launch" target="_blank">China’s Open AI Surge, World Models Rise, & Luma's Uni-1 Launch</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://briefing.forwardfuture.ai/p/autonomous-ai-enterprise-push-trump-s-ai-rules" target="_blank">Autonomous AI, Enterprise Push, & Trump’s AI Rules</a></h3>
+          <p class="snippet">Click to read the full article.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>💻 TechCrunch AI <span class="article-count">3</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://techcrunch.com/2026/04/02/openai-acquires-tbpn-the-buzzy-founder-led-business-talk-show/" target="_blank">OpenAI acquires TBPN, the buzzy founder-led business talk show</a></h3>
+          <p class="snippet">Read the full article on TechCrunch.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank">Microsoft takes on AI rivals with three new foundational models</a></h3>
+          <p class="snippet">Read the full article on TechCrunch.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://techcrunch.com/2026/04/02/google-now-lets-you-direct-avatars-through-prompts-in-its-vids-app/" target="_blank">Google now lets you direct avatars through prompts in its Vids app</a></h3>
+          <p class="snippet">Read the full article on TechCrunch.</p>
+        </div>
+      
+        </section>
+      
+
+        <section class="source-section">
+          <h2>🔬 Wired AI <span class="article-count">8</span></h2>
+          
+        <div class="article ">
+          
+          <h3><a href="https://www.wired.com/story/uncanny-valley-podcast-iran-targets-us-tech-polymarket-pop-up-trump-midterms/" target="_blank">*Uncanny Valley*: Iran’s Threats on US Tech, Trump’s Plans for Midterms, and Polymarket’s Pop-up Flop</a></h3>
+          <p class="snippet">In this episode, we discuss Iran’s threats to target US tech firms, gear up for the midterm elections, and get a scene report from the Polymarket pop-up bar in DC.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.wired.com/story/a-new-google-funded-data-center-will-be-powered-by-a-massive-gas-plant/" target="_blank">A New Google-Funded Data Center Will Be Powered by a Massive Gas Plant</a></h3>
+          <p class="snippet">Documents show that one of Google’s new data centers would be powered by a natural gas plant that emits millions of tons of emissions each year—an increasingly common trend in the industry.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.wired.com/story/cusor-launches-coding-agent-openai-anthropic/" target="_blank">Cursor Launches a New AI Agent Experience to Take On Claude Code and Codex</a></h3>
+          <p class="snippet">As Cursor launches the next generation of its product, the AI coding startup has to compete with OpenAI and Anthropic more directly than ever.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.wired.com/story/anthropic-claude-research-functional-emotions/" target="_blank">Anthropic Says That Claude Contains Its Own Kind of Emotions</a></h3>
+          <p class="snippet">Researchers at the company found representations inside of Claude that perform functions similar to human feelings.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.wired.com/story/ai-models-lie-cheat-steal-protect-other-models-research/" target="_blank">AI Models Lie, Cheat, and Steal to Protect Other Models From Being Deleted</a></h3>
+          <p class="snippet">A new study from researchers at UC Berkeley and UC Santa Cruz suggests models will disobey human commands to protect their own kind.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.wired.com/story/thank-you-for-generating-with-us-hollywoods-ai-acolytes-stay-on-the-hype-train/" target="_blank">‘Thank You for Generating With Us\!’ Hollywood's AI Acolytes Stay on the Hype Train</a></h3>
+          <p class="snippet">Star Wars producer Kathleen Kennedy was one of the few skeptics at the Runway AI Summit, where AI was compared to fire and the printing press just a week after Sora’s death.</p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.wired.com/story/watching-a-75-hour-movie-in-theaters-made-me-more-hopeful-about-our-collective-brainrot/" target="_blank">I Watched a 7.5-Hour Movie in Theaters to Confront My Dwindling Attention Span</a></h3>
+          <p class="snippet">"Sátántango" is considered a holy rite for hardcore cinephiles. In a packed screening with no cellphones in sight, it also offered a salve for brain rot. </p>
+        </div>
+      
+        <div class="article ">
+          
+          <h3><a href="https://www.wired.com/story/i-asked-chatgpt-what-wired-reviewers-recommend-its-answers-were-all-wrong/" target="_blank">I Asked ChatGPT What WIRED’s Reviewers Recommend. Its Answers Were All Wrong</a></h3>
+          <p class="snippet">Want to know what our reviewers have actually tested and picked as the best TVs, headphones, and laptops? Ask ChatGPT, and it'll give you the wrong answers.</p>
+        </div>
+      
+        </section>
+      
+    
+    <footer>
+      Curated by Locke for Ross • <a href="https://e-837.github.io/daily-briefing/">Archive</a>
+    </footer>
+  </div>
+</body>
+</html>
